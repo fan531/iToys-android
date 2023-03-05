@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_transparent">#00000000</color>
+    <color name="color_half_transparent">#99000000</color>
+    <color name="color_white">#ffffffff</color>
+    <color name="color_white60">#66ffffff</color>
+    <color name="color_white80">#33ffffff</color>
+    <color name="color_black">#ff000000</color>
+    <color name="color_black85">#D9000000</color>
+    <color name="color_toasty_frame">#D9000000</color>
+</resources>
