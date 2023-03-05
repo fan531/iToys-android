@@ -19,3 +19,7 @@
 
 * color命名方式：`color_色值`，例如：`color_388e3c`。注意：色值需要小写。
 * icon命名方式：`theme_icon_作用/功能`，例如：`theme_icon_back`。
+
+### 使用的三方库
+
+* 动态申请权限: 

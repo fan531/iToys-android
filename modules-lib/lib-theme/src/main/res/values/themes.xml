@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="IToysApp" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- enable window content transitions -->
+        <!--<item name="android:windowContentTransitions">true</item>-->
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/color_transparent</item>
+        <item name="colorPrimaryVariant">@color/color_transparent</item>
+        <item name="colorOnPrimary">@color/color_white</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:windowBackground">@color/color_f6f6f6</item>
+    </style>
+</resources>

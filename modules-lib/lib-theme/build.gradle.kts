@@ -1,3 +1,5 @@
+import com.itoys.depends.Depends
+import com.itoys.depends.Jetpacks
 import com.itoys.extension.libraryConfig
 
 plugins {
@@ -9,4 +11,11 @@ plugins {
 
 android {
     libraryConfig(project = project)
+}
+
+dependencies {
+    implementation(Jetpacks.core)
+    implementation(Jetpacks.appcompat)
+    implementation(Jetpacks.material)
+    implementation(Depends.kotlin_stdlib)
 }

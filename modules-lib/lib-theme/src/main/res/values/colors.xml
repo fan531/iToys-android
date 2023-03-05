@@ -8,4 +8,6 @@
     <color name="color_black">#ff000000</color>
     <color name="color_black85">#D9000000</color>
     <color name="color_toasty_frame">#D9000000</color>
+
+    <color name="color_f6f6f6">#FFF6F6F6</color>
 </resources>
