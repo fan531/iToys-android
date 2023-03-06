@@ -26,8 +26,8 @@
 
 ### TODO list
 
- - [] activity、fragment、app基类
- - [] ktx 扩展
- - [] 网络请求、数据存储
- - [] 图片选择器
- - [] 其他
+ - [ ] activity、fragment、app基类
+ - [ ] ktx 扩展
+ - [ ] 网络请求、数据存储
+ - [ ] 图片选择器
+ - [ ] 其他
