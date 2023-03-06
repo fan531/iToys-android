@@ -17,7 +17,7 @@ dependencyResolutionManagement {
 rootProject.name = "iToys"
 includeModules(
     ":app",
-    ":modules-lib",
+    ":iToys-modules",
 )
 
 // -------------------------------------------------------------------------------------------------

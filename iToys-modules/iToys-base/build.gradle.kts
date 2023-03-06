@@ -1,3 +1,4 @@
+import com.itoys.depends.Jetpacks
 import com.itoys.depends.Modules
 import com.itoys.extension.libraryConfig
 
@@ -11,5 +12,8 @@ plugins {
 android { libraryConfig(project = project) }
 
 dependencies {
-    implementation(Modules.libTheme(project))
+    implementation(Jetpacks.multidex)
+
+    implementation(Modules.iToysExpansion(project))
+    implementation(Modules.iToysTheme(project))
 }

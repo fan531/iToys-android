@@ -9,13 +9,14 @@ import org.gradle.api.Project
  */
 object Modules {
 
-    /** lib */
-    fun libBase(project: Project) = project.project(":modules-lib:lib-base")
-    fun libTheme(project: Project) = project.project(":modules-lib:lib-theme")
+    /** iToys modules */
+    fun iToysBase(project: Project) = project.project(":iToys-modules:iToys-base")
+    fun iToysExpansion(project: Project) = project.project(":iToys-modules:iToys-expansion")
+    fun iToysTheme(project: Project) = project.project(":iToys-modules:iToys-theme")
 
     /** 环境切换 */
-    fun moduleEnvApi(project: Project) = project.project(":module-env:env-api")
-    fun moduleEnv(project: Project) = project.project(":module-env:env-iml")
+    fun moduleEnvApi(project: Project) = project.project(":iToys-env:env-api")
+    fun moduleEnv(project: Project) = project.project(":iToys-env:env-iml")
 
     /** 登录 */
 }

@@ -1,16 +1,28 @@
 package com.itoys.app
 
 import android.app.Application
-import android.content.Context
+import com.itoys.base.app.IToysAppInit
+import com.itoys.base.app.IToysApplication
+
 
 /**
  * @author Fanfan.gu <a href="mailto:fanfan.work@outlook.com">Contact me.</a>
  * @date 05/03/2023
  * @desc
  */
-class IToysApp : Application() {
+class IToysApp : IToysApplication() {
+    override val appInit: IToysAppInit
+        get() = object : IToysAppInit {
+            override fun syncInit(application: Application) {
 
-    override fun attachBaseContext(base: Context?) {
-        super.attachBaseContext(base)
-    }
+            }
+
+            override fun asyncInit(application: Application) {
+
+            }
+
+            override fun initCompliance(application: Application) {
+
+            }
+        }
 }

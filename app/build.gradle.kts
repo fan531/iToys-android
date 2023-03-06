@@ -34,5 +34,6 @@ dependencies {
     implementation(Depends.kotlin_stdlib)
 
 
-    implementation(Modules.libTheme(project))
+    implementation(Modules.iToysBase(project))
+    implementation(Modules.iToysTheme(project))
 }

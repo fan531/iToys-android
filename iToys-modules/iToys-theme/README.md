@@ -1,4 +1,4 @@
-## lib-theme
+## iToys-theme
 app theme相关配置，所有module都可以依赖，统一管理资源。
 
 ### app theme
