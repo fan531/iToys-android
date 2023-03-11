@@ -29,11 +29,12 @@ android {
 }
 
 dependencies {
+    implementation(Jetpacks.activity)
     implementation(Jetpacks.core)
     implementation(Jetpacks.appcompat)
     implementation(Depends.kotlin_stdlib)
 
-
     implementation(Modules.iToysBase(project))
+    implementation(Modules.iToysExpansion(project))
     implementation(Modules.iToysTheme(project))
 }

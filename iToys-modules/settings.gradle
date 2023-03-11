@@ -1,1 +1,1 @@
-include ':iToys-base', ':iToys-expansion', ':iToys-theme'
+include ':iToys-base', ':iToys-expansion', ':iToys-theme', ':iToys-views'

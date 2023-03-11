@@ -12,13 +12,12 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 
 /**
- * @author Fanfan Gu <a href="mailto:stefan.gufan@gmail.com">Contact me.</a>
- * @date 25/04/2022 01:03
- * @desc Context扩展.
+ * @author Fanfan.gu <a href="mailto:fanfan.work@outlook.com">Contact me.</a>
+ * @date 08/03/2023
+ * @desc ui ktx 扩展
  */
-
 /**
- * 根据颜色资源id获取颜色
+ * 颜色
  */
 fun Context.color(@ColorRes colorResId: Int): Int {
     return ContextCompat.getColor(this, colorResId)
@@ -26,6 +25,8 @@ fun Context.color(@ColorRes colorResId: Int): Int {
 
 /**
  * 根据drawable资源id获取drawable
+ *
+ * 详见：[地址](https://stackoverflow.com/questions/43004886/resourcescompat-getdrawable-vs-appcompatresources-getdrawable)
  */
 fun Context.drawable(@DrawableRes drawableResId: Int): Drawable? {
     return AppCompatResources.getDrawable(this, drawableResId)

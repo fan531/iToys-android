@@ -25,12 +25,15 @@
         android:supportsRtl="true"
         android:theme="@style/IToysApp">
 
-        <activity android:name="com.itoys.app.splash.IToysSplashActivity">
+        <activity
+            android:name="com.itoys.app.splash.IToysSplashActivity"
+            android:exported="true"
+            android:theme="@style/IToysApp.Splash">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 </manifest>

@@ -169,6 +169,7 @@ fun BaseAppModuleExtension.appConfig(
 fun LibraryExtension.libraryConfig(
     project: Project,
     useAliRouter: Boolean = false,
+    useViewBiding: Boolean = true,
 ) {
     project.router(useAliRouter = useAliRouter)
 
@@ -177,6 +178,10 @@ fun LibraryExtension.libraryConfig(
     defaultConfig {
         minSdk = AppConfig.minSdkVersion.apiLevel
         targetSdk = AppConfig.targetSdkVersion.apiLevel
+    }
+
+    buildFeatures {
+        viewBinding = useViewBiding
     }
 
     compileOptions {

@@ -11,4 +11,13 @@
         <item name="android:clipToPadding">false</item>
         <item name="android:windowBackground">@color/color_f6f6f6</item>
     </style>
+
+    <style name="IToysApp.Splash" parent="IToysApp">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowBackground">@drawable/theme_layer_splash</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
 </resources>

@@ -32,7 +32,7 @@ object Jetpacks {
     const val core_uwb = "androidx.core.uwb:uwb:1.0.0-alpha04"
 
     /** 访问基于 activity 构建的可组合 API。 */
-    private const val activity_version = "1.6.0"
+    private const val activity_version = "1.6.1"
     const val activity = "androidx.activity:activity-ktx:$activity_version"
 
     /** 让您可以在平台的旧版 API 上访问新 API（很多都符合 Material Design 准则）。 */
@@ -74,26 +74,33 @@ object Jetpacks {
     const val camera_ext = "androidx.camera:camera-extensions:$camerax_version"
 
     /** 将您的应用细分为在一个 Activity 中托管的多个独立屏幕。 */
-    private const val fragment_version = "1.5.3"
-    const val fragment_ktx = "androidx.fragment:fragment-ktx:$fragment_version"
+    private const val fragment_version = "1.5.5"
+    const val fragment = "androidx.fragment:fragment-ktx:$fragment_version"
 
     // Testing Fragments in Isolation
     const val fragment_test = "androidx.fragment:fragment-testing:$fragment_version"
 
     /** 构建生命周期感知型组件，这些组件可以根据 activity 或 fragment 的当前生命周期状态调整行为。 */
     private const val lifecycle_version = "2.5.1"
-    const val view_model_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
-    const val viewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version"
-    const val live_data_ktx = "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 
     // Lifecycles only (without ViewModel or LiveData)
     const val lifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+    // Annotation processor
+    const val lifecycle_compiler = "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+    // alternately - if using Java8, use the following instead of lifecycle-compiler
+    const val lifecycle_java8 = "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+    // optional - helpers for implementing LifecycleOwner in a Service
+    const val lifecycle_service = "androidx.lifecycle:lifecycle-service:$lifecycle_version"
+
+    // view model
+    const val view_model = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    const val viewModel_compose = "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version"
+
+    // live data
+    const val live_data = "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 
     // Saved state module for ViewModel
     const val save_state = "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
-
-    // Kapt Annotation processor
-    const val lifecycle_compiler = "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 
     /** 适用于 Android 的模块化、可自定义 Material Design 界面组件 */
     private const val material_version = "1.6.1"
@@ -136,7 +143,7 @@ object Jetpacks {
     const val biometric = "androidx.biometric:biometric-ktx:1.2.0-alpha05"
 
     /** 用圆角和阴影实现 Material Design 卡片图案。 */
-    const val card_view = "androidx.cardview:cardview:1.0.0"
+    const val cardview = "androidx.cardview:cardview:1.0.0"
 
     /** 降低现有和新的小型集合对内存的影响。 */
     const val collection = "androidx.collection:collection-ktx:1.2.0"
@@ -165,4 +172,7 @@ object Jetpacks {
 
     /** 以可滑动的格式显示视图或 Fragment。 */
     const val viewpager2 = "androidx.viewpager2:viewpager2:1.0.0"
+
+    /** 约束布局 使用相对定位灵活地确定 widget 的位置和大小。 */
+    const val constraintlayout = "androidx.constraintlayout:constraintlayout:2.1.4"
 }

@@ -1,6 +1,7 @@
 ### 模块说明
-本项目采用`buildPlugin`来管理app的配置文件、依赖库；
-不采用`buildSrc`是因为在`buildSrc`中修改配置后整个项目都需要重新编译，太耗时；
+本项目采用`iToys-build`来管理app的配置文件、依赖库；
+不采用`buildSrc`是因为在buildSrc中修改配置后整个项目都需要重新编译，太耗时；
+有个弊端是在idea中点击无法跳转
 
 #### depends
 

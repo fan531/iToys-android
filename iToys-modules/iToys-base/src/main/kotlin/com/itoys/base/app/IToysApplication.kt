@@ -3,7 +3,7 @@ package com.itoys.base.app
 import android.app.Application
 import android.content.Context
 import androidx.multidex.MultiDex
-import com.itoys.base.utils.SysUtil
+import com.itoys.expansion.SysExpansion
 
 /**
  * @author Fanfan.gu <a href="mailto:fanfan.work@outlook.com">Contact me.</a>
@@ -19,11 +19,10 @@ abstract class IToysApplication : Application() {
         // 如果项目方法数超过65536, 则需要使用MultiDex进行分包
         MultiDex.install(base)
     }
-
     override fun onCreate() {
         super.onCreate()
 
-        if (SysUtil.isMainProcess(this)) {
+        if (SysExpansion.isMainProcess(this)) {
             appInit.syncInit(application = this)
         }
 

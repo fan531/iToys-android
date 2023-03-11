@@ -14,11 +14,6 @@ android {
 }
 
 dependencies {
-    implementation(Jetpacks.core)
-    implementation(Jetpacks.appcompat)
+    implementation(Jetpacks.material)
     implementation(Depends.kotlin_stdlib)
-    implementation(Jetpacks.recyclerview)
-    implementation(Depends.refresh)
-    implementation(Depends.refresh_header_classics)
-    implementation(Depends.refresh_footer_classics)
 }
