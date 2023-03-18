@@ -8,10 +8,10 @@ package com.itoys
 object EnvConfig {
 
     /** ************* Http host ************* */
-    val devEnvHost = "https://dev-app.zwsu.cn/api/v1/"
-    val testEnvHost = "https://test-app.zwsu.cn/api/v1/"
-    val uatEnvHost = "https://uat-app.zwsu.cn/api/v1/"
-    val prodEnvHost = "https://prod-app.zwsu.cn/api/v1/"
+    val devApiHost = "https://dev-app.zwsu.cn/api/v1/"
+    val testApiHost = "https://test-app.zwsu.cn/api/v1/"
+    val uatApiHost = "https://uat-app.zwsu.cn/api/v1/"
+    val prodApiHost = "https://prod-app.zwsu.cn/api/v1/"
 
     /** ************* umeng ************* */
 

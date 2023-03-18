@@ -46,21 +46,6 @@ object AppConfig {
     // app版本名称.
     const val versionName: String = "$majorVersion.$minorVersion.$patchVersion"
 
-    // app debug版本code.
-    const val debugVersionCode: Int = 1
-
-    // app debug版本名称.
-    const val debugVersionName: String = "$majorVersion.$minorVersion.D.$patchVersion"
-
-    // app preview版本code.
-    const val previewVersionCode: Int = 1
-
-    // app preview版本名称.
-    const val previewVersionName: String = "$majorVersion.$minorVersion.P.$patchVersion"
-
-    // app uat版本code.
-    const val uatVersionName: String = "$majorVersion.$minorVersion.U.$patchVersion"
-
     // 依赖.
     const val testRunner: String = "androidx.test.runner.AndroidJUnitRunner"
     const val defaultProguardFile: String = "proguard-android-optimize.txt"

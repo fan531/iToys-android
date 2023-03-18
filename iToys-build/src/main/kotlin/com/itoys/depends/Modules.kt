@@ -12,11 +12,14 @@ object Modules {
     /** iToys modules */
     fun iToysBase(project: Project) = project.project(":iToys-modules:iToys-base")
     fun iToysExpansion(project: Project) = project.project(":iToys-modules:iToys-expansion")
+    fun iToysLogcat(project: Project) = project.project(":iToys-modules:iToys-logcat")
+    fun iToysNetwork(project: Project) = project.project(":iToys-modules:iToys-network")
     fun iToysTheme(project: Project) = project.project(":iToys-modules:iToys-theme")
 
-    /** 环境切换 */
-    fun moduleEnvApi(project: Project) = project.project(":iToys-env:env-api")
-    fun moduleEnv(project: Project) = project.project(":iToys-env:env-iml")
+    fun iToysEnvAnnotation(project: Project) = project.project(":iToys-modules:iToys-env:env-annotation")
+    fun iToysEnvApi(project: Project) = project.project(":iToys-modules:iToys-env:env-api")
+    fun iToysEnv(project: Project) = project.project(":iToys-modules:iToys-env:env")
+    fun iToysEnvNoOp(project: Project) = project.project(":iToys-modules:iToys-env:env-noop")
 
     /** 登录 */
 }

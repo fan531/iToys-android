@@ -5,14 +5,13 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 
 /**
  * @author Fanfan.gu <a href="mailto:fanfan.work@outlook.com">Contact me.</a>
  * @date 07/03/2023
- * @desc
+ * @desc view model 基类, 通用操作可放到这个类里.
  */
 abstract class IToysViewModel : ViewModel(), DefaultLifecycleObserver {
 
@@ -30,13 +29,6 @@ abstract class IToysViewModel : ViewModel(), DefaultLifecycleObserver {
      */
     fun launchOnUI(block: suspend CoroutineScope.() -> Unit) {
         viewModelScope.launch { block() }
-    }
-
-    /**
-     * 在IO线程执行方法
-     */
-    fun launchOnIO(block: suspend CoroutineScope.() -> Unit) {
-        CoroutineScope(Dispatchers.IO).launch { block() }
     }
 
     override fun onCleared() {

@@ -22,7 +22,7 @@ android {
             .map { it as com.android.build.gradle.internal.api.BaseVariantOutputImpl }
             .forEach { output ->
                 val buildDate = SimpleDateFormat("yyyyMMddHHmm").format(Date())
-                val outputFileName = "iToys_${this.versionName}_${buildDate}_${AppConfig.patchVersion}.apk"
+                val outputFileName = "iToys_${this.versionName}_${buildDate}_${this.buildType.name}_${AppConfig.patchVersion}.apk"
                 output.outputFileName = outputFileName
             }
     }
@@ -36,5 +36,6 @@ dependencies {
 
     implementation(Modules.iToysBase(project))
     implementation(Modules.iToysExpansion(project))
+    implementation(Modules.iToysLogcat(project))
     implementation(Modules.iToysTheme(project))
 }

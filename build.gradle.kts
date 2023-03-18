@@ -2,5 +2,5 @@
 plugins {
     id("com.android.application").apply(false) version "7.4.2"
     id("com.android.library").apply(false) version "7.4.2"
-    id("org.jetbrains.kotlin.android").apply(false) version "1.7.10"
+    id("org.jetbrains.kotlin.android").apply(false) version "1.8.10"
 }

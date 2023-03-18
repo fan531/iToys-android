@@ -18,11 +18,11 @@ dependencies {
     implementation(Jetpacks.fragment)
     implementation(Depends.autosize)
     implementation(Jetpacks.core)
+    implementation(Depends.coroutines_android)
     implementation(Jetpacks.constraintlayout)
     implementation(Depends.immersionbar)
     implementation(Depends.immersionbar_ktx)
     implementation(Depends.kotlin_stdlib)
-    implementation(Depends.kotlinx_coroutines)
     implementation(Depends.titlebar)
     implementation(Jetpacks.recyclerview)
     implementation(Depends.refresh)
@@ -39,5 +39,10 @@ dependencies {
     implementation(Jetpacks.lifecycle_java8)
 
     implementation(Modules.iToysExpansion(project))
+    implementation(Modules.iToysLogcat(project))
+    implementation(Modules.iToysNetwork(project))
     implementation(Modules.iToysTheme(project))
+
+    debugImplementation(Modules.iToysEnv(project))
+    releaseImplementation(Modules.iToysEnvNoOp(project))
 }

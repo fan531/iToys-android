@@ -1,66 +1,37 @@
 package com.itoys
 
+import com.android.build.gradle.LibraryExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.api.plugins.PluginContainer
 
 class IToysBuild : Plugin<Project> {
 
     private companion object {
         const val implementation = "implementation"
+        const val debugImplementation = "debugImplementation"
+        const val fieldTypeString = "String"
+        const val fieldTypeBoolean = "boolean"
+        const val fieldTypeInt = "int"
     }
 
     override fun apply(target: Project) {
         println("> BuildPlugin :applyProject ${target.name}")
-        // target.plugins.added(target)
+
+        when (target.name) {
+            "iToys-network" -> {
+                val libExtension = libExtension(target)
+                libExtension.buildTypes.forEach { buildType ->
+                    buildType.buildConfigField(
+                        type = fieldTypeString,
+                        name = "PROD_API_URL",
+                        value = "\"${EnvConfig.prodApiHost}\""
+                    )
+                }
+            }
+        }
     }
 
-    /**
-     * build.
-     */
-    private fun PluginContainer.added(target: Project) {
-        /*whenPluginAdded {
-            // println(it)
-        }
-
-        all { plugin ->
-            if (plugin !is AppPlugin) {
-                return@all
-            }
-
-            val appExtension = target.extensions.getByType(AppExtension::class.java)
-            println(appExtension.defaultConfig)
-            appExtension.run {
-                this.applicationVariants.all { variant ->
-                    println("> Variant :variantName ${variant.buildType.name}")
-
-                    when (variant.buildType.name) {
-                        *//*"debug" -> {
-                            target.dependencies.add(implementation, Modules.moduleEnv(target))
-                        }*//*
-                    }
-                }
-            }
-        }*/
-
-        /*all { plugin ->
-            if (plugin !is AppPlugin) {
-                return@all
-            }
-
-            val appExtension = target.extensions.getByType(AppExtension::class.java)
-            println(appExtension.defaultConfig)
-            appExtension.run {
-                this.applicationVariants.all { variant ->
-                    println("> Variant : variantName: ${variant.buildType.name}")
-
-                    when (variant.buildType.name) {
-                        *//*"debug" -> {
-                            target.dependencies.add(implementation, Modules.moduleEnv(target))
-                        }*//*
-                    }
-                }
-            }
-        }*/
+    private fun libExtension(target: Project): LibraryExtension {
+        return target.extensions.getByType(LibraryExtension::class.java)
     }
 }

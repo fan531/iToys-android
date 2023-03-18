@@ -64,57 +64,8 @@ fun BaseAppModuleExtension.appConfig(
         targetSdk = AppConfig.targetSdkVersion.apiLevel
         testInstrumentationRunner = AppConfig.testRunner
         multiDexEnabled = true
-    }
-
-    buildTypes {
-        // dev
-        getByName("debug") {
-            isMinifyEnabled = false
-            isDebuggable = true
-            proguardFiles(getDefaultProguardFile(AppConfig.defaultProguardFile), AppConfig.proguardRulesFile)
-
-            defaultConfig.applicationId = "${AppConfig.appId}.debug"
-            defaultConfig.versionCode = AppConfig.debugVersionCode
-            defaultConfig.versionName = AppConfig.debugVersionName
-
-            manifestPlaceholders.putAll(debugAppManifestPlaceholders)
-        }
-
-        // test
-        create("preview") {
-            isMinifyEnabled = false
-            isDebuggable = true
-            proguardFiles(getDefaultProguardFile(AppConfig.defaultProguardFile), AppConfig.proguardRulesFile)
-
-            defaultConfig.applicationId = "${AppConfig.appId}.preview"
-            defaultConfig.versionCode = AppConfig.previewVersionCode
-            defaultConfig.versionName = AppConfig.previewVersionName
-
-            manifestPlaceholders.putAll(previewAppManifestPlaceholders)
-        }
-
-        // uat
-        create("uat") {
-            isMinifyEnabled = true
-            isDebuggable = false
-            proguardFiles(getDefaultProguardFile(AppConfig.defaultProguardFile), AppConfig.proguardRulesFile)
-
-            defaultConfig.applicationId = "${AppConfig.appId}.uat"
-            defaultConfig.versionName = AppConfig.uatVersionName
-            manifestPlaceholders.putAll(uatAppManifestPlaceholders)
-        }
-
-        // release
-        getByName("release") {
-            isMinifyEnabled = true
-            isDebuggable = false
-            proguardFiles(getDefaultProguardFile(AppConfig.defaultProguardFile), AppConfig.proguardRulesFile)
-
-            defaultConfig.applicationId = AppConfig.appId
-            defaultConfig.versionCode = AppConfig.versionCode
-            defaultConfig.versionName = AppConfig.versionName
-            manifestPlaceholders.putAll(appManifestPlaceholders)
-        }
+        versionName = AppConfig.versionName
+        versionCode = AppConfig.versionCode
     }
 
     signingConfigs {
@@ -130,6 +81,70 @@ fun BaseAppModuleExtension.appConfig(
             storePassword = "itoys2023"
             keyAlias = "itoys"
             keyPassword = "itoys2023"
+        }
+    }
+
+    buildTypes {
+        // dev
+        getByName("debug") {
+            isMinifyEnabled = false
+            isDebuggable = true
+            proguardFiles(getDefaultProguardFile(AppConfig.defaultProguardFile), AppConfig.proguardRulesFile)
+            matchingFallbacks.apply { add("debug") }
+
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-debug"
+            testNamespace = "${AppConfig.appId}$applicationIdSuffix"
+
+            signingConfig = signingConfigs.getByName("debug")
+            manifestPlaceholders.putAll(debugAppManifestPlaceholders)
+        }
+
+        // test
+        create("preview") {
+            isMinifyEnabled = false
+            isDebuggable = true
+            proguardFiles(getDefaultProguardFile(AppConfig.defaultProguardFile), AppConfig.proguardRulesFile)
+            matchingFallbacks.apply {
+                add("debug")
+                add("release")
+            }
+
+            applicationIdSuffix = ".preview"
+            versionNameSuffix = "-preview"
+            testNamespace = "${AppConfig.appId}$applicationIdSuffix"
+
+            signingConfig = signingConfigs.getByName("debug")
+            manifestPlaceholders.putAll(previewAppManifestPlaceholders)
+        }
+
+        // pre-release
+        create("preRelease") {
+            isMinifyEnabled = false
+            isDebuggable = true
+            proguardFiles(getDefaultProguardFile(AppConfig.defaultProguardFile), AppConfig.proguardRulesFile)
+            matchingFallbacks.apply {
+                add("debug")
+                add("release")
+            }
+
+            applicationIdSuffix = ".uat"
+            versionNameSuffix = "-uat"
+            testNamespace = "${AppConfig.appId}$applicationIdSuffix"
+
+            signingConfig = signingConfigs.getByName("release")
+            manifestPlaceholders.putAll(uatAppManifestPlaceholders)
+        }
+
+        // release
+        getByName("release") {
+            isMinifyEnabled = true
+            isDebuggable = false
+            proguardFiles(getDefaultProguardFile(AppConfig.defaultProguardFile), AppConfig.proguardRulesFile)
+            matchingFallbacks.apply { add("release") }
+
+            signingConfig = signingConfigs.getByName("release")
+            manifestPlaceholders.putAll(appManifestPlaceholders)
         }
     }
 

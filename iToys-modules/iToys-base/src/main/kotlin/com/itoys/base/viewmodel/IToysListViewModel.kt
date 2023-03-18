@@ -7,4 +7,5 @@ package com.itoys.base.viewmodel
  */
 abstract class IToysListViewModel : IToysViewModel() {
 
+
 }
