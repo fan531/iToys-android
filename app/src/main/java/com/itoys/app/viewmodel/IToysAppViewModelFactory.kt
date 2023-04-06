@@ -3,7 +3,7 @@ package com.itoys.app.viewmodel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import com.itoys.app.splash.IToysSplashViewModel
+import com.itoys.app.splash.mvi.IToysSplashViewModel
 
 /**
  * @author Fanfan.gu <a href="mailto:fanfan.work@outlook.com">Contact me.</a>

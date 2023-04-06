@@ -26,7 +26,7 @@
         android:theme="@style/IToysApp">
 
         <activity
-            android:name="com.itoys.app.splash.IToysSplashActivity"
+            android:name="com.itoys.app.splash.ui.IToysSplashActivity"
             android:exported="true"
             android:theme="@style/IToysApp.Splash">
 

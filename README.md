@@ -12,6 +12,8 @@
 
 ### 使用说明
 
+框架使用 MVI 模式, 新的尝试.
+
 #### Activity
 
 #### Fragment
@@ -35,7 +37,7 @@
 
 ### TODO list
 
- - [ ] ViewModel 基类完善
+ - [ ] fragment 基类
  - [ ] 数据存储, 接口缓存
  - [ ] 缺省页
  - [ ] 图片选择器

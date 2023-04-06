@@ -27,7 +27,7 @@ private val jsonMediaType: MediaType by lazy {
     "application/json; charset=utf-8".toMediaType()
 }
 
-internal fun argsToMap(vararg args: Pair<String, Any>): HashMap<String, Any> {
+fun argsToMap(vararg args: Pair<String, Any>): HashMap<String, Any> {
     return hashMapOf<String, Any>().apply {
         args.forEach {
             put(it.first, it.second)
@@ -35,7 +35,7 @@ internal fun argsToMap(vararg args: Pair<String, Any>): HashMap<String, Any> {
     }
 }
 
-internal fun argsToBody(vararg args: Pair<String, Any>): RequestBody {
+fun argsToBody(vararg args: Pair<String, Any>): RequestBody {
     val argsMap = hashMapOf<String, Any>().apply {
         args.forEach {
             put(it.first, it.second)
@@ -45,11 +45,11 @@ internal fun argsToBody(vararg args: Pair<String, Any>): RequestBody {
     return JsonMapper.objToString(argsMap).toRequestBody(jsonMediaType)
 }
 
-internal fun argsMapToBody(argsMap: HashMap<String, Any>): RequestBody {
+fun argsMapToBody(argsMap: HashMap<String, Any>): RequestBody {
     return JsonMapper.objToString(argsMap).toRequestBody(jsonMediaType)
 }
 
-internal fun argsToJson(vararg args: Pair<String, Any>): String {
+fun argsToJson(vararg args: Pair<String, Any>): String {
     val argsMap = hashMapOf<String, Any>().apply {
         args.forEach {
             put(it.first, it.second)
@@ -59,7 +59,7 @@ internal fun argsToJson(vararg args: Pair<String, Any>): String {
     return JsonMapper.objToString(argsMap)
 }
 
-internal fun Throwable.handlerException(): ResultException {
+fun Throwable.handlerException(): ResultException {
     return when (this) {
         is ResultException -> this
         is HttpException -> {

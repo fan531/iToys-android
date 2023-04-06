@@ -1,7 +1,8 @@
-package com.itoys.app.splash
+package com.itoys.app.splash.ui
 
 import androidx.activity.viewModels
 import com.itoys.app.databinding.AppActivitySplashBinding
+import com.itoys.app.splash.mvi.IToysSplashViewModel
 import com.itoys.app.viewmodel.IToysAppViewModelFactory
 import com.itoys.base.activity.AbsIToysMvvmActivity
 
