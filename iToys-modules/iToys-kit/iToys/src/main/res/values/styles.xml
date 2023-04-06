@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="IToysKit">
+
+        <item name="android:overScrollHeader">#00000000</item>
+        <item name="android:overScrollFooter">#00000000</item>
+        <item name="android:overScrollMode">never</item>
+    </style>
+
+    <style name="IToysKit.Recycler" parent="IToysKit">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+</resources>

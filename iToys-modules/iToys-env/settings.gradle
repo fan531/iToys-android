@@ -1,1 +1,1 @@
-include ':env', ':env-annotation', ':env-api', ':env-noop'
+include ':env-annotation', ':env-iml'

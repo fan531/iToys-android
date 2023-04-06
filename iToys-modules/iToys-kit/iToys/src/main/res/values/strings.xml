@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="kit_str_title">IToysKit</string>
+    <string name="kit_str_common_tools">常用工具</string>
+</resources>

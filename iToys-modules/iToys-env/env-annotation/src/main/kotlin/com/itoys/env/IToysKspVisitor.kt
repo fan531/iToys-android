@@ -38,7 +38,7 @@ class IToysKspVisitor(
         environment.logger.warn("codeGenerator packageName: $packageName")
         environment.logger.warn("codeGenerator fileName: ${classDeclaration.simpleName.asString()}")
 
-        packageName = "com.itoys.env"
+        packageName = "com.itoys.env.iml"
         className = "IToysEnvApiConfig"
         val fileSpec = FileSpec.builder(
             packageName = packageName,

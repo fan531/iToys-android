@@ -23,11 +23,7 @@ fun CharSequence?.isNotBlank(): Boolean {
  * 判断字符串是否有效, 如果为空默认返回长度为0的字符串
  */
 fun CharSequence?.invalid(invalid: String = ""): String {
-    return if (isBlank()) {
-        invalid
-    } else {
-        this.toString().trimString()
-    }
+    return isBlank().then({ invalid }, { this.toString() })
 }
 
 /**

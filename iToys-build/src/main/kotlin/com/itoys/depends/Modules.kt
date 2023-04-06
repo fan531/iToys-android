@@ -15,11 +15,15 @@ object Modules {
     fun iToysLogcat(project: Project) = project.project(":iToys-modules:iToys-logcat")
     fun iToysNetwork(project: Project) = project.project(":iToys-modules:iToys-network")
     fun iToysTheme(project: Project) = project.project(":iToys-modules:iToys-theme")
+    fun iToysUtils(project: Project) = project.project(":iToys-modules:iToys-utils")
+
+    /** iToys kit */
+    fun iToysKit(project: Project) = project.project(":iToys-modules:iToys-kit:iToys")
+    fun iToysKitNoop(project: Project) = project.project(":iToys-modules:iToys-kit:iToys-noop")
 
     fun iToysEnvAnnotation(project: Project) = project.project(":iToys-modules:iToys-env:env-annotation")
     fun iToysEnvApi(project: Project) = project.project(":iToys-modules:iToys-env:env-api")
-    fun iToysEnv(project: Project) = project.project(":iToys-modules:iToys-env:env")
-    fun iToysEnvNoOp(project: Project) = project.project(":iToys-modules:iToys-env:env-noop")
+    fun iToysEnvIml(project: Project) = project.project(":iToys-modules:iToys-env:env-iml")
 
     /** 登录 */
 }

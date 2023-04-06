@@ -20,6 +20,12 @@ object Depends {
     /** 极低成本的 Android 屏幕适配方案 */
     const val autosize = "com.github.JessYanCoding:AndroidAutoSize:v1.2.1"
 
+    /** Android上最好的RecyclerView框架, 比 BRVAH 更简单强大 */
+    const val brv = "com.github.liangjingkanji:BRV:${Versions.brv}"
+
+    /** Type-safe Multiplatform cryptography library for Kotlin */
+    const val cryptography = "dev.whyoleg.cryptography:cryptography-core:0.1.0"
+
     /** json 解析 */
     const val gson = "com.google.code.gson:gson:2.10.1"
     const val jackson = "com.fasterxml.jackson.module:jackson-module-kotlin:2.14.+"
@@ -27,6 +33,9 @@ object Depends {
     /** 沉浸式状态栏和沉浸式导航栏管理 */
     const val immersionbar = "com.geyifeng.immersionbar:immersionbar:${Versions.immersionbar}"
     const val immersionbar_ktx = "com.geyifeng.immersionbar:immersionbar-ktx:${Versions.immersionbar}"
+
+    /** MMKV——基于 mmap 的高性能通用 key-value 组件 */
+    const val mmkv = "com.tencent:mmkv:${Versions.mmkv}"
 
     /** 标题栏 */
     const val titlebar = "com.github.getActivity:TitleBar:${Versions.titlebar}"
@@ -57,19 +66,25 @@ object Depends {
      * 依赖版本号.
      */
     private object Versions {
-        /** Kotlin version */
+        /** BRV */
+        const val brv = "1.3.90"
+
+        /** Kotlin */
         const val kotlin = "1.6.21"
 
-        /** ksp version */
+        /** ksp */
         const val ksp = "1.8.10-1.0.9"
 
-        /** 沉浸式状态栏 version */
+        /** 沉浸式状态栏 */
         const val immersionbar = "3.2.2"
 
-        /** 智能下拉刷新框架 version */
+        /** mmkv */
+        const val mmkv = "1.2.15"
+
+        /** 智能下拉刷新框架 */
         const val refresh = "2.0.5"
 
-        /** 标题栏 version */
+        /** 标题栏 */
         const val titlebar = "10.0"
 
         /** 网络相关 */
@@ -80,9 +95,9 @@ object Depends {
         const val okio = "3.3.0"
 
         /** 路由相关. */
-        // 货拉拉路由.
+        /** 货拉拉路由 */
         const val router_therouter = "1.1.1"
-        // 阿里路由.
+        /** 阿里路由 */
         const val router_ali = "1.111"
     }
 }

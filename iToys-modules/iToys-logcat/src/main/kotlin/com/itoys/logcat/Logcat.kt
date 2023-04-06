@@ -85,7 +85,7 @@ inline fun logcat(
 }
 
 inline fun Any.logToFile(
-    priority: LogPriority = LogPriority.DEBUG,
+    priority: LogPriority = LogPriority.INFO,
     /**
      * If provided, the log will use this tag instead of the simple class name of `this` at the call
      * site.
@@ -99,8 +99,7 @@ inline fun Any.logToFile(
 
     CoroutineScope(Dispatchers.IO).launch {
         LogcatLogger.logger.let { logger ->
-            val tagOrCaller = tag ?: outerClassSimpleNameInternalOnlyDoNotUseKThxBye()
-            logger.logFile(priority, File(""), "$tagOrCaller -> $msg")
+            logger.logFile(priority, File(LogcatUtils.todayLogFile()), "${LogcatUtils.nowTime()} -> $msg")
         }
     }
 }

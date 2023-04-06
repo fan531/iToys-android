@@ -27,12 +27,6 @@ fun generatorEnvConfigClass(
     classBuilder.addFunction(initEnvConfigFunc(envConfigList))
     classBuilder.addFunction(envConfigListFunc())
 
-    /** 添加prod api url */
-    /*val prodEnvConfig = envConfigList.filter { it.release }
-    if (prodEnvConfig.isNotEmpty()) {
-        classBuilder.addFunction(prodApiUrlFunc(prodEnvConfig[0].url))
-    }*/
-
     return classBuilder.build()
 }
 
@@ -65,11 +59,6 @@ private fun initEnvConfigFunc(envConfigList: MutableList<EnvConfigEntity>): FunS
             "envList.add(EnvConfigEntity(%S, %S, ${envConfigList[2].release}))",
             envConfigList[2].url,
             envConfigList[2].alias
-        )
-        .addStatement(
-            "envList.add(EnvConfigEntity(%S, %S, false))",
-            "",
-            "自定义"
         )
         .addStatement("}")
     return initEnvConfig.build()

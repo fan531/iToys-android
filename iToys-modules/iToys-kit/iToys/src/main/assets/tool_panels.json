@@ -1,0 +1,38 @@
+[
+  {
+    "group": "常用工具",
+    "list": [
+      {
+        "name": "切换环境",
+        "desc": "app api环境切换",
+        "link": "iToys-kit://native/env",
+        "type": "native",
+        "icon": 0,
+        "visibility": true
+      }
+    ],
+    "visibility": true
+  },
+  {
+    "group": "系统工具",
+    "list": [
+      {
+        "name": "开发者选项",
+        "desc": "开发者选项",
+        "link": "iToys-kit://system/developer",
+        "type": "system",
+        "icon": 1,
+        "visibility": true
+      },
+      {
+        "name": "设置",
+        "desc": "IToys 设置",
+        "link": "iToys-kit://native/settings",
+        "type": "native",
+        "icon": 2,
+        "visibility": true
+      }
+    ],
+    "visibility": true
+  }
+]

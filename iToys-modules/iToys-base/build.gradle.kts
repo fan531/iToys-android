@@ -43,6 +43,6 @@ dependencies {
     implementation(Modules.iToysNetwork(project))
     implementation(Modules.iToysTheme(project))
 
-    debugImplementation(Modules.iToysEnv(project))
-    releaseImplementation(Modules.iToysEnvNoOp(project))
+    debugImplementation(Modules.iToysKit(project))
+    releaseImplementation(Modules.iToysKitNoop(project))
 }

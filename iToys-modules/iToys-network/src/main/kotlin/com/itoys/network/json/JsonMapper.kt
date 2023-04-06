@@ -8,6 +8,8 @@ import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.databind.json.JsonMapper
 import com.fasterxml.jackson.module.kotlin.jsonMapper
 import com.fasterxml.jackson.module.kotlin.kotlinModule
+import com.itoys.logcat.LogPriority
+import com.itoys.logcat.logcat
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -50,6 +52,8 @@ object JsonMapper {
     }
 
     fun <T> stringToObj(jsonString: String, objClass: Class<T>): T? {
+        logcat(LogPriority.INFO) { jsonString }
+
         return try {
             mapper.readValue(jsonString, objClass)
         } catch (e: JacksonException) {
@@ -58,6 +62,8 @@ object JsonMapper {
     }
 
     fun <T> stringToList(jsonString: String, objClass: Class<T>): List<T>? {
+        logcat(LogPriority.INFO) { jsonString }
+
         return try {
             mapper.readValue(
                 jsonString,
@@ -73,6 +79,8 @@ object JsonMapper {
         keyClass: Class<K>,
         valueClass: Class<V>
     ): Map<K, V>? {
+        logcat(LogPriority.INFO) { jsonString }
+
         return try {
             mapper.readValue(
                 jsonString,

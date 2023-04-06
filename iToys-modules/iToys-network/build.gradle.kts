@@ -1,4 +1,5 @@
 import com.itoys.depends.Depends
+import com.itoys.depends.Modules
 import com.itoys.extension.libraryConfig
 
 plugins {
@@ -18,4 +19,5 @@ dependencies {
     implementation(Depends.okhttp)
     implementation(Depends.gson)
     implementation(Depends.jackson)
+    implementation(Modules.iToysLogcat(project))
 }

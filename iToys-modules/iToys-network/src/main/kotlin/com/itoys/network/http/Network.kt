@@ -33,7 +33,7 @@ fun initRetrofit(apiUrl: String) {
 }
 
 fun <T> Class<T>.toApiService(): T {
-    if (retrofit == null) throw UninitializedPropertyAccessException("Retrofit必须初始化")
+    if (retrofit == null) throw UninitializedPropertyAccessException("请初始化Retrofit")
 
     return retrofit!!.create(this)
 }

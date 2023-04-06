@@ -1,1 +1,8 @@
-include ':iToys-base', ':iToys-env', ':iToys-expansion', ':iToys-logcat', ':iToys-network', ':iToys-theme'
+include ':iToys-base',
+        ':iToys-env',
+        ':iToys-expansion',
+        ':iToys-kit',
+        ':iToys-logcat',
+        ':iToys-network',
+        ':iToys-theme',
+        ':iToys-utils'

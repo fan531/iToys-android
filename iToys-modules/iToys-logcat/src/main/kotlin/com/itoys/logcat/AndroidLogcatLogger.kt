@@ -23,7 +23,7 @@ private const val MAX_TAG_LENGTH = 23
  *
  * The implementation is based on Timber DebugTree.
  */
-class AndroidLogcatLogger(minPriority: LogPriority = LogPriority.DEBUG) : LogcatLogger {
+internal class AndroidLogcatLogger(minPriority: LogPriority = LogPriority.DEBUG) : LogcatLogger {
 
     private val minPriorityInt: Int = minPriority.priorityInt
 

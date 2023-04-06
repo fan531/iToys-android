@@ -25,7 +25,7 @@ private val appManifestPlaceholders: HashMap<String, Any> by lazy {
 private val debugAppManifestPlaceholders: HashMap<String, Any> by lazy {
     hashMapOf<String, Any>().apply {
         // app 名称.
-        put("app_name", AppConfig.appName)
+        put("app_name", "${AppConfig.appName}-debug")
     }
 }
 
@@ -33,7 +33,7 @@ private val debugAppManifestPlaceholders: HashMap<String, Any> by lazy {
 private val previewAppManifestPlaceholders: HashMap<String, Any> by lazy {
     hashMapOf<String, Any>().apply {
         // app 名称.
-        put("app_name", AppConfig.appName)
+        put("app_name", "${AppConfig.appName}-pre")
     }
 }
 
@@ -120,8 +120,8 @@ fun BaseAppModuleExtension.appConfig(
 
         // pre-release
         create("preRelease") {
-            isMinifyEnabled = false
-            isDebuggable = true
+            isMinifyEnabled = true
+            isDebuggable = false
             proguardFiles(getDefaultProguardFile(AppConfig.defaultProguardFile), AppConfig.proguardRulesFile)
             matchingFallbacks.apply {
                 add("debug")

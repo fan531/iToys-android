@@ -1,5 +1,6 @@
 package com.itoys.expansion
 
+import android.content.Context
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
@@ -13,6 +14,7 @@ import java.text.DecimalFormat
  * 默认保留小数点后10位
  */
 const val DEFAULT_DECIMAL_NUMBER = 2
+
 /**
  * 默认分隔符为千分位
  */
@@ -39,3 +41,8 @@ fun Number.formatNumber(
     if (modeFloor) decimalFormat.roundingMode = RoundingMode.FLOOR
     return decimalFormat.format(this)
 }
+
+/**
+ * if low using default value instead.
+ */
+fun Int.thanLess(defaultValue: Int = 0): Int = (this < defaultValue).then(defaultValue, this)
