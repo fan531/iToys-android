@@ -6,7 +6,6 @@
 .Android Application
 ├── app             # app example;
 ├── iToys-build     # 项目配置模块;
-├── iToys-env       # 环境切换模块;
 ├── iToys-login     # 登录模块;
 └── iToys-modules   # lib 模块;
 ```
