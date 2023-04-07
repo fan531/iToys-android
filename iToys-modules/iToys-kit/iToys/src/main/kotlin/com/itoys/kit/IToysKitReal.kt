@@ -2,8 +2,10 @@ package com.itoys.kit
 
 import android.app.Application
 import android.graphics.drawable.Drawable
+import com.itoys.expansion.invalid
 import com.itoys.kit.core.IToysKitManager
 import com.itoys.kit.core.IToysKitViewManager
+import com.itoys.kit.repository.IToysKitRepository
 import com.itoys.logcat.LogPriority
 import com.itoys.logcat.LogcatInitialization
 import com.itoys.network.NetworkInitialization
@@ -49,7 +51,7 @@ internal object IToysKitReal {
      */
     private fun initializationNetwork() {
         // 初始化网络 base url
-        NetworkInitialization.initialization()
+        NetworkInitialization.initialization(IToysKitRepository.kitNetworkUrl.invalid())
     }
 
     /**

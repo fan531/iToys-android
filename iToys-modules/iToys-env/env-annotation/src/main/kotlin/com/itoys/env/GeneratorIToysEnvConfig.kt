@@ -45,22 +45,16 @@ private fun initEnvConfigFunc(envConfigList: MutableList<EnvConfigEntity>): FunS
     val initEnvConfig = FunSpec.builder("initEnvConfig")
         .addModifiers(KModifier.PRIVATE)
         .addStatement("if (envList.size == 0) {")
-        .addStatement(
-            "envList.add(EnvConfigEntity(%S, %S, ${envConfigList[0].release}))",
-            envConfigList[0].url,
-            envConfigList[0].alias
+
+    envConfigList.forEach { envConfig ->
+        initEnvConfig.addStatement(
+            "envList.add(EnvConfigEntity(%S, %S, ${envConfig.release}))",
+            envConfig.url,
+            envConfig.alias
         )
-        .addStatement(
-            "envList.add(EnvConfigEntity(%S, %S, ${envConfigList[1].release}))",
-            envConfigList[1].url,
-            envConfigList[1].alias
-        )
-        .addStatement(
-            "envList.add(EnvConfigEntity(%S, %S, ${envConfigList[2].release}))",
-            envConfigList[2].url,
-            envConfigList[2].alias
-        )
-        .addStatement("}")
+    }
+
+    initEnvConfig.addStatement("}")
     return initEnvConfig.build()
 }
 

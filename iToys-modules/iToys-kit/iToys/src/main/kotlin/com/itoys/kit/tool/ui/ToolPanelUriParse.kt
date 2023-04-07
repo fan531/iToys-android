@@ -6,7 +6,9 @@ import android.provider.Settings
 import androidx.appcompat.app.AppCompatActivity
 import com.itoys.env.dialog.ApiEnvDialog
 import com.itoys.env.iml.IToysEnvApiConfig
+import com.itoys.expansion.invalid
 import com.itoys.expansion.isBlank
+import com.itoys.kit.repository.IToysKitRepository
 import com.itoys.network.NetworkInitialization
 
 /**
@@ -26,9 +28,13 @@ object ToolPanelUriParse {
                 ApiEnvDialog.show(activity.supportFragmentManager) {
                     setEnvApiList(IToysEnvApiConfig.envConfigList())
 
+                    setEnvAlias(IToysKitRepository.kitNetworkAlias.invalid())
+
                     setCallback(object : ApiEnvDialog.INetworkApiCallback {
-                        override fun networkApi(api: String) {
-                            NetworkInitialization.initialization(api)
+                        override fun networkApi(alias: String, url: String) {
+                            IToysKitRepository.kitNetworkAlias = alias
+                            IToysKitRepository.kitNetworkUrl = url
+                            NetworkInitialization.initialization(url)
                         }
                     })
                 }

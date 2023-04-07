@@ -16,6 +16,8 @@ class EnvApiConfig(
     val testUrl: String,
     @Env(url = "https://api.zwsu.cn/api/", alias = "生产环境", release = true)
     val releaseUrl: String,
+    @Env(url = "http://127.0.0.1:4523/m1/2554044-0-default/", alias = "本地 Mock", release = false)
+    val mockUrl: String,
     @Env(url = "", alias = "自定义", release = false)
     val customUrl: String,
 )

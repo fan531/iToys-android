@@ -19,6 +19,7 @@ import com.itoys.expansion.doOnClick
 import com.itoys.expansion.dp2px
 import com.itoys.expansion.invalid
 import com.itoys.expansion.isBlank
+import com.itoys.expansion.isNotBlank
 import com.itoys.expansion.tagName
 import com.itoys.expansion.then
 import com.itoys.utils.ScreenUtils
@@ -53,6 +54,8 @@ class ApiEnvDialog : DialogFragment() {
 
         private var apiList: List<EnvConfigEntity>? = null
 
+        private var envAlias: String = ""
+
         fun getFragmentManager(): FragmentManager {
             return this.fm
         }
@@ -71,6 +74,15 @@ class ApiEnvDialog : DialogFragment() {
             return this.apiList
         }
 
+        fun setEnvAlias(alias: String): Builder {
+            this.envAlias = alias
+            return this
+        }
+
+        fun getEnvAlias(): String {
+            return this.envAlias
+        }
+
         fun getCallback(): INetworkApiCallback? {
             return this.callback
         }
@@ -87,9 +99,10 @@ class ApiEnvDialog : DialogFragment() {
     }
 
     private val mDialogHeight: Int by lazy {
-        (ScreenUtils.getScreenHeight() * 0.52).toInt()
+        (ScreenUtils.getScreenHeight() * 0.65).toInt()
     }
 
+    private var curNetworkAlias: String = ""
     private var curNetworkApi: String = ""
 
     override fun onCreateView(
@@ -104,12 +117,16 @@ class ApiEnvDialog : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if (builder.getEnvAlias().isNotBlank()) {
+            mBinding?.envTvNetwork?.text = builder.getEnvAlias()
+        }
+
         mBinding?.envEtNetworkApi?.addTextChangedListener {
             curNetworkApi = it.toString()
         }
 
         mBinding?.envBtnOk?.doOnClick {
-            builder.getCallback()?.networkApi(curNetworkApi)
+            builder.getCallback()?.networkApi(curNetworkAlias, curNetworkApi)
             dismiss()
         }
 
@@ -119,6 +136,7 @@ class ApiEnvDialog : DialogFragment() {
 
                 onClick(R.id.env_ll_network_api) {
                     val clickIem = getModelOrNull<EnvConfigEntity>()
+                    curNetworkAlias = clickIem?.alias.invalid()
                     curNetworkApi = clickIem?.url.invalid()
                     mBinding?.envTvNetwork?.text = clickIem?.alias.invalid("自定义")
 
@@ -156,6 +174,6 @@ class ApiEnvDialog : DialogFragment() {
     }
 
     interface INetworkApiCallback {
-        fun networkApi(api: String)
+        fun networkApi(alias: String, url: String)
     }
 }
