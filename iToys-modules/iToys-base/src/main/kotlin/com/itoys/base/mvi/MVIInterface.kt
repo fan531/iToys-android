@@ -35,6 +35,9 @@ sealed class ToastUIState {
     data class Snack(val snackMsg: String) : ToastUIState()
 }
 
+/**
+ * list 状态
+ */
 data class IListUIState<out T>(
     val listUiState: ListUIState<T>
 ) : IUIState
@@ -48,9 +51,12 @@ sealed class ListUIState<out T> {
     data class LoadMoreList<out T>(val list: List<T>?) : ListUIState<T>()
 }
 
-sealed class IListUIIntent : IUIIntent {
+/**
+ * list 事件
+ */
+sealed class ListUIIntent : IUIIntent {
 
-    object Refresh : IListUIIntent()
+    object Refresh : ListUIIntent()
 
-    object LoadMore : IListUIIntent()
+    object LoadMore : ListUIIntent()
 }

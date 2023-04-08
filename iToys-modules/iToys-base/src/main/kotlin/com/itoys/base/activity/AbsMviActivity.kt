@@ -3,7 +3,7 @@ package com.itoys.base.activity
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
-import com.itoys.base.mvi.AbsIToysViewModel
+import com.itoys.base.mvi.AbsViewModel
 import com.itoys.base.mvi.IUIIntent
 import com.itoys.base.mvi.IUIState
 import com.itoys.base.mvi.LoadingUIState
@@ -14,8 +14,8 @@ import com.itoys.base.mvi.ToastUIState
  * @date 06/03/2023
  * @desc
  */
-abstract class AbsIToysMvvmActivity<VB : ViewBinding,
-        VM : AbsIToysViewModel<out IUIState, out IUIIntent>> : AbsIToysActivity<VB>() {
+abstract class AbsMviActivity<VB : ViewBinding,
+        VM : AbsViewModel<out IUIState, out IUIIntent>> : AbsActivity<VB>() {
 
     /** view model */
     abstract val mViewModel: VM?

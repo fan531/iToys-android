@@ -17,9 +17,6 @@ object Depends {
     const val ksp = "com.google.devtools.ksp:symbol-processing-api:${Versions.ksp}"
     const val kotlinpoet = "com.squareup:kotlinpoet-ksp:1.12.0"
 
-    /** 极低成本的 Android 屏幕适配方案 */
-    const val autosize = "com.github.JessYanCoding:AndroidAutoSize:v1.2.1"
-
     /** Android上最好的RecyclerView框架, 比 BRVAH 更简单强大 */
     const val brv = "com.github.liangjingkanji:BRV:${Versions.brv}"
 

@@ -22,7 +22,6 @@
 
 ### 使用的三方库
 
-* [AutoSize](https://github.com/JessYanCoding/AndroidAutoSize): 今日头条屏幕适配方案终极版，一个极低成本的 Android 屏幕适配方案.
 * [ImmersionBar](https://github.com/gyf-dev/ImmersionBar): android 4.4以上沉浸式状态栏和沉浸式导航栏管理.
 * [TitleBar](https://github.com/getActivity/TitleBar): Android 标题栏框架，从此布局属性不用记.
 * [SmartRefreshLayout](https://github.com/scwang90/SmartRefreshLayout): Android智能下拉刷新框架，支持越界回弹、越界拖动，具有极强的扩展性，集成了几十种炫酷的Header和 Footer.
@@ -37,8 +36,8 @@
 
 ### TODO list
 
- - [ ] fragment 基类
- - [ ] 数据存储, 接口缓存
+ - [ ] loading, toast, snack
  - [ ] 缺省页
+ - [ ] 数据存储, 接口缓存
  - [ ] 图片选择器
  - [ ] 完善工具类、扩展

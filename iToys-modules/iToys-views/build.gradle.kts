@@ -14,6 +14,10 @@ android {
 }
 
 dependencies {
+    implementation(Jetpacks.core)
+    implementation(Jetpacks.constraintlayout)
     implementation(Jetpacks.material)
+
+    implementation(Depends.brv)
     implementation(Depends.kotlin_stdlib)
 }

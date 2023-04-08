@@ -15,21 +15,20 @@ android { libraryConfig(project = project) }
 dependencies {
     implementation(Jetpacks.appcompat)
     implementation(Jetpacks.activity)
-    implementation(Jetpacks.fragment)
-    implementation(Depends.autosize)
     implementation(Jetpacks.core)
-    implementation(Depends.coroutines_android)
+    implementation(Jetpacks.cardview)
     implementation(Jetpacks.constraintlayout)
+    implementation(Jetpacks.fragment)
+    implementation(Jetpacks.multidex)
+    implementation(Jetpacks.recyclerview)
+
+    implementation(Depends.brv)
+    implementation(Depends.coroutines_android)
+    implementation(Depends.cryptography)
     implementation(Depends.immersionbar)
     implementation(Depends.immersionbar_ktx)
     implementation(Depends.kotlin_stdlib)
     implementation(Depends.titlebar)
-    implementation(Jetpacks.recyclerview)
-    implementation(Depends.refresh)
-    implementation(Depends.refresh_header_classics)
-    implementation(Depends.refresh_footer_classics)
-    implementation(Jetpacks.cardview)
-    implementation(Jetpacks.multidex)
 
     // lifecycle, view model, live data,
     implementation(Jetpacks.lifecycle)
@@ -42,6 +41,7 @@ dependencies {
     implementation(Modules.iToysLogcat(project))
     implementation(Modules.iToysNetwork(project))
     implementation(Modules.iToysTheme(project))
+    implementation(Modules.iToysViews(project))
 
     debugImplementation(Modules.iToysKit(project))
     releaseImplementation(Modules.iToysKitNoop(project))

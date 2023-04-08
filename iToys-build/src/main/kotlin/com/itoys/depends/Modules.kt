@@ -16,6 +16,7 @@ object Modules {
     fun iToysNetwork(project: Project) = project.project(":iToys-modules:iToys-network")
     fun iToysTheme(project: Project) = project.project(":iToys-modules:iToys-theme")
     fun iToysUtils(project: Project) = project.project(":iToys-modules:iToys-utils")
+    fun iToysViews(project: Project) = project.project(":iToys-modules:iToys-views")
 
     /** iToys kit */
     fun iToysKit(project: Project) = project.project(":iToys-modules:iToys-kit:iToys")

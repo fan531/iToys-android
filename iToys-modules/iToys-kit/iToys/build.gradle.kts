@@ -17,15 +17,16 @@ android {
 dependencies {
     implementation(Jetpacks.appcompat)
     implementation(Jetpacks.activity)
-    implementation(Depends.brv)
     implementation(Jetpacks.core)
-    implementation(Depends.coroutines_android)
     implementation(Jetpacks.fragment)
+    implementation(Jetpacks.recyclerview)
+
+    implementation(Depends.brv)
+    implementation(Depends.coroutines_android)
     implementation(Depends.immersionbar)
     implementation(Depends.immersionbar_ktx)
     implementation(Depends.kotlin_stdlib)
     implementation(Depends.mmkv)
-    implementation(Jetpacks.recyclerview)
     implementation(Depends.titlebar)
 
     // lifecycle, view model, live data,

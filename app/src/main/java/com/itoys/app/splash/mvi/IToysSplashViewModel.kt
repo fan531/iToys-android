@@ -1,8 +1,6 @@
 package com.itoys.app.splash.mvi
 
-import com.itoys.base.mvi.IUIIntent
-import com.itoys.base.mvi.IUIState
-import com.itoys.base.mvi.AbsIToysViewModel
+import com.itoys.base.mvi.AbsViewModel
 
 /**
  * @author Fanfan.gu <a href="mailto:fanfan.work@outlook.com">Contact me.</a>
@@ -10,7 +8,7 @@ import com.itoys.base.mvi.AbsIToysViewModel
  * @desc
  */
 
-class IToysSplashViewModel : AbsIToysViewModel<SplashUIState, SplashUIIntent>() {
+class IToysSplashViewModel : AbsViewModel<SplashUIState, SplashUIIntent>() {
     override fun createUIState(): SplashUIState {
         return SplashUIState()
     }

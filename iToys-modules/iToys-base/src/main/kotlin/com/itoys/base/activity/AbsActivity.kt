@@ -4,14 +4,13 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import com.gyf.immersionbar.ImmersionBar
-import com.itoys.base.R
 
 /**
  * @author Fanfan.gu <a href="mailto:fanfan.work@outlook.com">Contact me.</a>
  * @date 06/03/2023
  * @desc
  */
-abstract class AbsIToysActivity<VB : ViewBinding> : AppCompatActivity() {
+abstract class AbsActivity<VB : ViewBinding> : AppCompatActivity() {
 
     /** activity 本身. */
     open var self: AppCompatActivity? = null
@@ -45,7 +44,8 @@ abstract class AbsIToysActivity<VB : ViewBinding> : AppCompatActivity() {
     /**
      * 数据初始化
      *
-     * activity onResume 之后会调用次方法
+     * 默认activity [onResume] 之后会调用次方法
+     * 如果不需要在[onResume]之后会调用, 需重写[onResume]方法
      */
     abstract fun initData()
 

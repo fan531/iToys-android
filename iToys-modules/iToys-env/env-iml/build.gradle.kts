@@ -20,8 +20,10 @@ dependencies {
     implementation(Jetpacks.appcompat)
     implementation(Jetpacks.recyclerview)
     implementation(Jetpacks.constraintlayout)
+
     implementation(Depends.brv)
     implementation(Depends.kotlin_stdlib)
+
     implementation(Modules.iToysExpansion(project))
     implementation(Modules.iToysEnvAnnotation(project))
     implementation(Modules.iToysUtils(project))

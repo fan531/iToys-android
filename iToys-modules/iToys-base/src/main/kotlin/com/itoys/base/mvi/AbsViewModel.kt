@@ -32,7 +32,7 @@ import kotlinx.coroutines.launch
  * @date 07/03/2023
  * @desc view model 基类, 通用操作可放到这个类里.
  */
-abstract class AbsIToysViewModel<U : IUIState, I : IUIIntent> : ViewModel(),
+abstract class AbsViewModel<U : IUIState, I : IUIIntent> : ViewModel(),
     DefaultLifecycleObserver {
 
     /** view 状态 flow */

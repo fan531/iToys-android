@@ -9,7 +9,7 @@ import com.itoys.network.entity.PageEntity
  * @date 07/03/2023
  * @desc
  */
-abstract class AbsIToysListViewModel<T> : AbsIToysViewModel<IListUIState<T>, IListUIIntent>() {
+abstract class AbsListViewModel<T> : AbsViewModel<IListUIState<T>, ListUIIntent>() {
 
     private val queryMap: HashMap<String, Any> by lazy { HashMap() }
 
