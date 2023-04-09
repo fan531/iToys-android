@@ -10,6 +10,7 @@
     <color name="theme_colorful_white_percent60">#66FFFFFF</color>
     <color name="theme_colorful_black">#000000</color>
     <color name="theme_colorful_black_percent15">#D9000000</color>
+    <color name="theme_colorful_black_percent40">#99000000</color>
 
     <color name="theme_colorful_A06AF9">#A06AF9</color>
     <color name="theme_colorful_FBA3FF">#FBA3FF</color>

@@ -37,6 +37,9 @@ object Depends {
     /** 标题栏 */
     const val titlebar = "com.github.getActivity:TitleBar:${Versions.titlebar}"
 
+    /** loading */
+    const val spin = "com.github.ybq:Android-SpinKit:1.4.0"
+
     /** 智能下拉刷新框架 */
     const val refresh = "io.github.scwang90:refresh-layout-kernel:${Versions.refresh}"
     const val refresh_header_classics = "io.github.scwang90:refresh-header-classics:${Versions.refresh}"

@@ -32,6 +32,7 @@
 * [kotlinpoet](https://github.com/square/kotlinpoet): A Kotlin API for generating .kt source files.
 * [BRV](https://github.com/liangjingkanji/BRV): Android上最好的RecyclerView框架, 比 BRVAH 更简单强大.
 * [mmkv](https://github.com/Tencent/MMKV): An efficient, small mobile key-value storage framework developed by WeChat. Works on Android, iOS, macOS, Windows, and POSIX.
+* [Android-SpinKit](https://github.com/ybq/Android-SpinKit): Android loading animations.
 * [cryptography](https://github.com/whyoleg/cryptography-kotlin): Type-safe Multiplatform cryptography library for Kotlin.
 
 ### TODO list

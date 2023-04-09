@@ -23,7 +23,9 @@ sealed class LoadingUIState {
 
     data class Loading(var showLoading: Boolean) : LoadingUIState()
 
-    data class Error(val errorMsg: String) : LoadingUIState()
+    data class Success(val message: String) : LoadingUIState()
+
+    data class Error(val message: String) : LoadingUIState()
 }
 
 /**

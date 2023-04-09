@@ -21,8 +21,10 @@ dependencies {
 
     implementation(Depends.brv)
     implementation(Depends.kotlin_stdlib)
+    implementation(Depends.spin)
 
     implementation(Modules.iToysExpansion(project))
+    implementation(Modules.iToysLogcat(project))
     implementation(Modules.iToysTheme(project))
     implementation(Modules.iToysUtils(project))
 }

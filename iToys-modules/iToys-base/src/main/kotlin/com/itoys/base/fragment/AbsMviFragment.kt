@@ -8,6 +8,7 @@ import com.itoys.base.mvi.IUIIntent
 import com.itoys.base.mvi.IUIState
 import com.itoys.base.mvi.LoadingUIState
 import com.itoys.base.mvi.ToastUIState
+import com.itoys.views.loading.LoadingDialog
 import com.itoys.views.toast.normalToast
 
 /**
@@ -20,6 +21,9 @@ abstract class AbsMviFragment<VB : ViewBinding,
 
     /** view model */
     abstract val mViewModel: VM?
+
+    /** loading dialog */
+    private var loadingDialog: LoadingDialog? = null
 
     override fun initialize(savedInstanceState: Bundle?) {
         mViewModel?.init(arguments)
@@ -66,15 +70,22 @@ abstract class AbsMviFragment<VB : ViewBinding,
                 when (state) {
                     is LoadingUIState.Loading -> {
                         if (state.showLoading) {
-                            // 显示 loading
+                            if (loadingDialog == null) {
+                                loadingDialog = LoadingDialog.newDialog {  }
+                            }
+
+                            loadingDialog?.showDialog(fm = parentFragmentManager)
                         } else {
-                            // 隐藏 loading
+                            loadingDialog?.dismiss()
                         }
+                    }
+
+                    is LoadingUIState.Success -> {
+                        // 显示 成功 loading
                     }
 
                     is LoadingUIState.Error -> {
                         // 显示 错误 loading
-
                     }
 
                     else -> {}

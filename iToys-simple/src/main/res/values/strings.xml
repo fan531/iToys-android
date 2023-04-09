@@ -7,4 +7,5 @@
     <string name="simple_str_toasty_warning">警告吐司</string>
     <string name="simple_str_toasty_success">成功吐司</string>
     <string name="simple_str_toasty_error">错误吐司</string>
+    <string name="simple_str_show_loading">SHOW Loading</string>
 </resources>

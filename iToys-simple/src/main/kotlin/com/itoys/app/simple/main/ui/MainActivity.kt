@@ -42,6 +42,13 @@ class MainActivity : AbsMviActivity<ItoysSimpleActivityMainBinding, MainViewMode
         mBinding?.simpleBtnToastyWarning?.doOnClick { warningToast(R.string.simple_str_toasty_warning) }
         mBinding?.simpleBtnToastySuccess?.doOnClick { successToast(R.string.simple_str_toasty_success) }
         mBinding?.simpleBtnToastyError?.doOnClick { errorToast(R.string.simple_str_toasty_error) }
+        mBinding?.simpleBtnShowLoading?.doOnClick {
+            mViewModel.sendUIIntent(MainUIIntent.TestLoading(showLoading = true))
+
+            mBinding?.simpleBtnShowLoading?.postDelayed({
+                mViewModel.sendUIIntent(MainUIIntent.TestLoading(showLoading = false))
+            }, 2000)
+        }
     }
 
     override fun activityTitle(): String {

@@ -10,4 +10,6 @@ import com.itoys.base.mvi.IUIIntent
 sealed class MainUIIntent : IUIIntent {
 
     object TestToast : MainUIIntent()
+
+    class TestLoading(val showLoading: Boolean) : MainUIIntent()
 }

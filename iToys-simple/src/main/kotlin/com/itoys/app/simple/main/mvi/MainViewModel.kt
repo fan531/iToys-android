@@ -1,6 +1,7 @@
 package com.itoys.app.simple.main.mvi
 
 import com.itoys.base.mvi.AbsViewModel
+import com.itoys.base.mvi.LoadingUIState
 import com.itoys.base.mvi.ToastUIState
 
 /**
@@ -15,8 +16,12 @@ class MainViewModel : AbsViewModel<MainUIState, MainUIIntent>() {
 
     override fun handlerIntent(intent: MainUIIntent) {
         when (intent) {
-            MainUIIntent.TestToast -> {
+            is MainUIIntent.TestToast -> {
                 testToast()
+            }
+
+            is MainUIIntent.TestLoading -> {
+                testLoading(intent.showLoading)
             }
         }
     }
@@ -26,5 +31,12 @@ class MainViewModel : AbsViewModel<MainUIState, MainUIIntent>() {
      */
     private fun testToast() {
         sendToastUIState { ToastUIState.Toast("test toast") }
+    }
+
+    /**
+     * main intent test loading.
+     */
+    private fun testLoading(showLoading: Boolean) {
+        sendLoadingUIState { LoadingUIState.Loading(showLoading = showLoading) }
     }
 }
