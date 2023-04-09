@@ -34,8 +34,13 @@ dependencies {
     implementation(Jetpacks.appcompat)
     implementation(Depends.kotlin_stdlib)
 
+    implementation(Modules.iToysSimple(project))
+
     implementation(Modules.iToysBase(project))
     implementation(Modules.iToysExpansion(project))
     implementation(Modules.iToysLogcat(project))
     implementation(Modules.iToysTheme(project))
+
+    debugImplementation(Modules.iToysKit(project))
+    releaseImplementation(Modules.iToysKitNoop(project))
 }

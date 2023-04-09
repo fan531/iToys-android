@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="simple_str_main_title">IToys Simple</string>
+    <string name="simple_str_main_basics">基础</string>
+    <string name="simple_str_toasty_normal">正常吐司</string>
+    <string name="simple_str_toasty_info">提示吐司</string>
+    <string name="simple_str_toasty_warning">警告吐司</string>
+    <string name="simple_str_toasty_success">成功吐司</string>
+    <string name="simple_str_toasty_error">错误吐司</string>
+</resources>

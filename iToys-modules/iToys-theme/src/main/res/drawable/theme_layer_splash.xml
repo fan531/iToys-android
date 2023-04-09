@@ -3,7 +3,7 @@
     android:opacity="opaque">
 
     <item>
-        <color android:color="@color/color_white" />
+        <color android:color="@color/theme_colorful_white" />
     </item>
 
     <item android:gravity="center">

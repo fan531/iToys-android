@@ -1,7 +1,5 @@
 package com.itoys.kit.tool.ui
 
-import android.content.Context
-import android.content.Intent
 import android.content.res.TypedArray
 import android.graphics.Color
 import android.os.Bundle
@@ -31,19 +29,6 @@ import com.itoys.kit.tool.viewmodel.ToolPanelViewModel
  * @desc 工具面板 activity
  */
 class ToolPanelActivity : AppCompatActivity() {
-
-    companion object {
-        fun open(context: Context) {
-            val bundle = Bundle()
-            start(context, bundle)
-        }
-
-        private fun start(context: Context, bundle: Bundle) {
-            val intent = Intent(context, ToolPanelActivity::class.java)
-            intent.putExtras(bundle)
-            context.startActivity(intent)
-        }
-    }
 
     private var self: AppCompatActivity? = null
 

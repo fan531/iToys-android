@@ -19,6 +19,7 @@ rootProject.name = "iToys-android"
 includeModules(
     ":app",
     ":iToys-modules",
+    ":iToys-simple",
 )
 
 // -------------------------------------------------------------------------------------------------

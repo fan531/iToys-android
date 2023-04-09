@@ -1,5 +1,6 @@
 import com.itoys.depends.Depends
 import com.itoys.depends.Jetpacks
+import com.itoys.depends.Modules
 import com.itoys.extension.libraryConfig
 
 plugins {
@@ -20,4 +21,8 @@ dependencies {
 
     implementation(Depends.brv)
     implementation(Depends.kotlin_stdlib)
+
+    implementation(Modules.iToysExpansion(project))
+    implementation(Modules.iToysTheme(project))
+    implementation(Modules.iToysUtils(project))
 }

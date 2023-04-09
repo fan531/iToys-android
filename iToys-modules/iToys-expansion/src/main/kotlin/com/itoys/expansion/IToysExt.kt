@@ -1,7 +1,9 @@
 package com.itoys.expansion
 
 import android.app.Activity
-import android.view.View
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import androidx.fragment.app.Fragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -11,8 +13,31 @@ import kotlin.reflect.KClass
 /**
  * @author Fanfan.gu <a href="mailto:fanfan.work@outlook.com">Contact me.</a>
  * @date 12/03/2023
- * @desc 通用ktx 扩展
+ * @desc ext about common.
  */
+
+/** ext about activity  */
+fun KClass<out Any>.actOpen(context: Context) {
+    this.java.actOpen(context, bundle = Bundle())
+}
+
+fun KClass<out Any>.actOpen(context: Context, vararg extras: Pair<String, Any>) {
+    val bundle = Bundle()
+    extras.forEach { extra ->
+        bundle.put(extra)
+    }
+    this.java.actOpen(context, bundle = bundle)
+}
+
+fun Class<out Any>.actOpen(context: Context) {
+    actOpen(context, bundle = Bundle())
+}
+
+fun Class<out Any>.actOpen(context: Context, bundle: Bundle) {
+    val intent = Intent(context, this)
+    intent.putExtras(bundle)
+    context.startActivity(intent)
+}
 
 /**
  * 在IO线程中启动

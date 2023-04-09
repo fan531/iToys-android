@@ -20,6 +20,8 @@ abstract class AbsActivity<VB : ViewBinding> : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         self = this
+        mBinding = createViewBinding()
+        setContentView(mBinding?.root)
 
         supportActionBar?.hide()
         initView(savedInstanceState)
@@ -40,6 +42,13 @@ abstract class AbsActivity<VB : ViewBinding> : AppCompatActivity() {
      * 初始化view
      */
     abstract fun initView(savedInstanceState: Bundle?)
+
+    /**
+     * 当前页面标题
+     */
+    protected open fun activityTitle(): String {
+        return ""
+    }
 
     /**
      * 数据初始化
@@ -92,7 +101,7 @@ abstract class AbsActivity<VB : ViewBinding> : AppCompatActivity() {
      * 浸式状态栏颜色
      */
     protected open fun immersionBarColor(): Int {
-        return com.itoys.theme.R.color.color_white
+        return com.itoys.theme.R.color.theme_colorful_white
     }
 
     /**
@@ -113,7 +122,7 @@ abstract class AbsActivity<VB : ViewBinding> : AppCompatActivity() {
      * 导航栏颜色
      */
     protected open fun navigationBarColor(): Int {
-        return com.itoys.theme.R.color.color_toasty_frame
+        return com.itoys.theme.R.color.theme_colorful_black_percent15
     }
 
     protected open fun navigationAlpha(): Float {

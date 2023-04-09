@@ -26,5 +26,8 @@ object Modules {
     fun iToysEnvApi(project: Project) = project.project(":iToys-modules:iToys-env:env-api")
     fun iToysEnvIml(project: Project) = project.project(":iToys-modules:iToys-env:env-iml")
 
+    /** Simple */
+    fun iToysSimple(project: Project) = project.project(":iToys-simple")
+
     /** 登录 */
 }

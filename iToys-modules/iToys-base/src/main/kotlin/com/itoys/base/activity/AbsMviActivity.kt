@@ -8,6 +8,7 @@ import com.itoys.base.mvi.IUIIntent
 import com.itoys.base.mvi.IUIState
 import com.itoys.base.mvi.LoadingUIState
 import com.itoys.base.mvi.ToastUIState
+import com.itoys.views.toast.normalToast
 
 /**
  * @author Fanfan.gu <a href="mailto:fanfan.work@outlook.com">Contact me.</a>
@@ -81,7 +82,7 @@ abstract class AbsMviActivity<VB : ViewBinding,
             viewModel.toastUiStateFlow.collect { state ->
                 when (state) {
                     is ToastUIState.Toast -> {
-                       // toast message
+                       normalToast(state.toastMsg)
                     }
 
                     is ToastUIState.Snack -> {

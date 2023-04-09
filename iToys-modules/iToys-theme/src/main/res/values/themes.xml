@@ -1,15 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- 标题字号 -->
+    <attr name="headingTextSize1" format="dimension" />
+    <attr name="headingTextSize2" format="dimension" />
+    <attr name="headingTextSize3" format="dimension" />
+    <attr name="headingTextSize4" format="dimension" />
+
+    <!-- 内容字号 -->
+    <attr name="bodyTextSize" format="dimension" />
+    <attr name="smallBodyTextSize" format="dimension" />
+
+    <!-- 内容文字颜色 -->
+    <attr name="bodyTextColor" format="color" />
+
     <style name="IToysApp" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- enable window content transitions -->
         <!--<item name="android:windowContentTransitions">true</item>-->
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/color_transparent</item>
-        <item name="colorPrimaryVariant">@color/color_transparent</item>
-        <item name="colorOnPrimary">@color/color_white</item>
+        <item name="colorPrimary">@color/theme_colorful_transparent</item>
+        <item name="colorPrimaryVariant">@color/theme_colorful_transparent</item>
+        <item name="colorOnPrimary">@color/theme_colorful_white</item>
         <item name="android:clipToPadding">false</item>
-        <item name="android:windowBackground">@color/color_f6f6f6</item>
+        <item name="android:windowBackground">@color/theme_colorful_FAFAFA</item>
+
+        <item name="headingTextSize1">28sp</item>
+        <item name="headingTextSize2">22sp</item>
+        <item name="headingTextSize3">16sp</item>
+        <item name="headingTextSize4">14sp</item>
+
+        <item name="bodyTextSize">16sp</item>
+        <item name="smallBodyTextSize">14sp</item>
+
+        <item name="bodyTextColor">@color/theme_colorful_2E3234</item>
     </style>
 
     <style name="IToysApp.Splash" parent="IToysApp">

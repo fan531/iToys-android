@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.lifecycle.Lifecycle
+import com.itoys.expansion.actOpen
 import com.itoys.expansion.isBlank
 import com.itoys.expansion.tagName
 import com.itoys.kit.IToysKitReal
@@ -54,7 +55,7 @@ internal class NormalIToysKitViewManager : AbsIToysKitViewManager() {
     }
 
     override fun attachToolPanel(activity: Activity?) {
-        activity?.apply { ToolPanelActivity.open(this) }
+        activity?.apply { ToolPanelActivity::class.actOpen(this) }
     }
 
     override fun onMainActivityResume(activity: Activity?) {

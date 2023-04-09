@@ -20,7 +20,7 @@ private var lastClickTag = 0
 /**
  * view 点击.
  *
- * 防止连续点击导致.
+ * 防止连续点击.
  */
 fun View.doOnClick(block: () -> Unit) {
     this.setOnClickListener {

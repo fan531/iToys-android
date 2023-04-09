@@ -76,14 +76,14 @@ abstract class AbsViewModel<U : IUIState, I : IUIIntent> : ViewModel(),
     /**
      * 发送 loading 状态
      */
-    private fun sendLoadingUIState(copy: LoadingUIState?.() -> LoadingUIState) {
+    fun sendLoadingUIState(copy: LoadingUIState?.() -> LoadingUIState) {
         _loadingUiStateFlow.update { copy(_loadingUiStateFlow.value) }
     }
 
     /**
      * 发送 toast 状态
      */
-    private fun sendToastUIState(copy: ToastUIState?.() -> ToastUIState) {
+    fun sendToastUIState(copy: ToastUIState?.() -> ToastUIState) {
         _toastUiStateFlow.update { copy(_toastUiStateFlow.value) }
     }
 

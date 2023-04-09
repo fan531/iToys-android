@@ -4,6 +4,8 @@ import android.content.Context
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 import android.graphics.drawable.Drawable
+import android.graphics.drawable.NinePatchDrawable
+import android.os.Build
 import android.view.View
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
@@ -32,8 +34,12 @@ fun Context.drawable(@DrawableRes drawableResId: Int): Drawable? {
     return AppCompatResources.getDrawable(this, drawableResId)
 }
 
+fun Context.tint9PatchDrawable(@DrawableRes drawableResId: Int): NinePatchDrawable? {
+    return AppCompatResources.getDrawable(this, drawableResId) as NinePatchDrawable?
+}
+
 fun View.backgroundExt(drawable: Drawable?) {
-    if (SysExpansion.isAndroidJelly()) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
         this.background = drawable
     } else {
         this.setBackgroundDrawable(drawable)

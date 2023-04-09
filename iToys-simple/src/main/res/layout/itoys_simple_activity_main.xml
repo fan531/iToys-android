@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.hjq.bar.TitleBar
+        android:id="@+id/simple_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:leftIcon="@null" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/IToysView.MediumText"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/simple_str_main_basics"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/simple_title_bar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/simple_title_bar">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/simple_btn_toasty_normal"
+            style="@style/IToysView.MediumButton"
+            android:layout_width="84dp"
+            android:layout_height="40dp"
+            android:text="@string/simple_str_toasty_normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/simple_btn_toasty_info"
+            style="@style/IToysView.MediumButton"
+            android:layout_width="84dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/simple_str_toasty_info"
+            app:layout_constraintStart_toEndOf="@+id/simple_btn_toasty_normal"
+            app:layout_constraintTop_toTopOf="@id/simple_btn_toasty_normal" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/simple_btn_toasty_warning"
+            style="@style/IToysView.MediumButton"
+            android:layout_width="84dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/simple_str_toasty_warning"
+            app:layout_constraintStart_toEndOf="@+id/simple_btn_toasty_info"
+            app:layout_constraintTop_toTopOf="@id/simple_btn_toasty_info" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/simple_btn_toasty_success"
+            style="@style/IToysView.MediumButton"
+            android:layout_width="84dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/simple_str_toasty_success"
+            app:layout_constraintStart_toEndOf="@+id/simple_btn_toasty_warning"
+            app:layout_constraintTop_toTopOf="@id/simple_btn_toasty_warning" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/simple_btn_toasty_error"
+            style="@style/IToysView.MediumButton"
+            android:layout_width="84dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/simple_str_toasty_error"
+            app:layout_constraintStart_toStartOf="@+id/simple_btn_toasty_normal"
+            app:layout_constraintTop_toBottomOf="@id/simple_btn_toasty_normal" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
