@@ -71,12 +71,12 @@ abstract class AbsMviActivity<VB : ViewBinding,
                         }
                     }
 
-                    is LoadingUIState.Success -> {
-                        // 显示 成功 loading
-                    }
-
-                    is LoadingUIState.Error -> {
-                        // 显示 错误 loading
+                    is LoadingUIState.State -> {
+                        if (state.isSuccess) {
+                            loadingDialog?.dismissWithSuccess(state.message)
+                        } else {
+                            loadingDialog?.dismissWithError(state.message)
+                        }
                     }
 
                     else -> {}
@@ -93,7 +93,7 @@ abstract class AbsMviActivity<VB : ViewBinding,
             viewModel.toastUiStateFlow.collect { state ->
                 when (state) {
                     is ToastUIState.Toast -> {
-                       normalToast(state.toastMsg)
+                       normalToast(state.message)
                     }
 
                     is ToastUIState.Snack -> {

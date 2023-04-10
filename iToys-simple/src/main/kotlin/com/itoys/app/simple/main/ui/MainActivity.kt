@@ -1,6 +1,7 @@
 package com.itoys.app.simple.main.ui
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import com.itoys.app.simple.R
 import com.itoys.app.simple.databinding.ItoysSimpleActivityMainBinding
@@ -11,7 +12,6 @@ import com.itoys.base.activity.AbsMviActivity
 import com.itoys.expansion.doOnClick
 import com.itoys.views.toast.errorToast
 import com.itoys.views.toast.infoToast
-import com.itoys.views.toast.normalToast
 import com.itoys.views.toast.successToast
 import com.itoys.views.toast.warningToast
 
@@ -43,12 +43,34 @@ class MainActivity : AbsMviActivity<ItoysSimpleActivityMainBinding, MainViewMode
         mBinding?.simpleBtnToastySuccess?.doOnClick { successToast(R.string.simple_str_toasty_success) }
         mBinding?.simpleBtnToastyError?.doOnClick { errorToast(R.string.simple_str_toasty_error) }
         mBinding?.simpleBtnShowLoading?.doOnClick {
-            mViewModel.sendUIIntent(MainUIIntent.TestLoading(showLoading = true))
-
-            mBinding?.simpleBtnShowLoading?.postDelayed({
-                mViewModel.sendUIIntent(MainUIIntent.TestLoading(showLoading = false))
-            }, 2000)
+            showLoading(
+                mBinding?.simpleBtnShowLoading,
+                MainUIIntent.TestShowLoading(showLoading = false)
+            )
         }
+
+        mBinding?.simpleBtnLoadingSuccess?.doOnClick {
+            showLoading(
+                mBinding?.simpleBtnLoadingSuccess,
+                MainUIIntent.TestStateLoading(isSuccess = true)
+            )
+        }
+
+        mBinding?.simpleBtnLoadingError?.doOnClick {
+            showLoading(
+                mBinding?.simpleBtnLoadingSuccess,
+                MainUIIntent.TestStateLoading(isSuccess = false)
+            )
+        }
+    }
+
+    private fun showLoading(view: View?, postIntent: MainUIIntent) {
+        mViewModel.sendUIIntent(MainUIIntent.TestShowLoading(showLoading = true))
+
+        view?.postDelayed(
+            { mViewModel.sendUIIntent(postIntent) },
+            2000
+        )
     }
 
     override fun activityTitle(): String {

@@ -86,5 +86,25 @@
             android:text="@string/simple_str_show_loading"
             app:layout_constraintStart_toEndOf="@+id/simple_btn_toasty_error"
             app:layout_constraintTop_toTopOf="@id/simple_btn_toasty_error" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/simple_btn_loading_success"
+            style="@style/IToysView.MediumButton"
+            android:layout_width="84dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/simple_str_show_loading_success"
+            app:layout_constraintStart_toEndOf="@+id/simple_btn_show_loading"
+            app:layout_constraintTop_toTopOf="@id/simple_btn_show_loading" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/simple_btn_loading_error"
+            style="@style/IToysView.MediumButton"
+            android:layout_width="84dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/simple_str_show_loading_error"
+            app:layout_constraintStart_toEndOf="@+id/simple_btn_loading_success"
+            app:layout_constraintTop_toTopOf="@id/simple_btn_loading_success" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,8 +2,10 @@ package com.itoys.views.loading
 
 import android.os.Bundle
 import android.view.Gravity
-import android.view.WindowManager
+import android.view.View
+import androidx.annotation.DrawableRes
 import com.itoys.expansion.sp2px
+import com.itoys.views.R
 import com.itoys.views.databinding.ItoysViewsDialogLoadingBinding
 import com.itoys.views.dialog.AbsDialog
 
@@ -15,6 +17,8 @@ import com.itoys.views.dialog.AbsDialog
 class LoadingDialog : AbsDialog<ItoysViewsDialogLoadingBinding>() {
 
     companion object {
+        private const val DISMISS_DELAYED = 1500L
+
         fun newDialog(builder: Builder.() -> Unit): LoadingDialog {
             val build = Builder().apply(builder).build()
             val dialog = LoadingDialog()
@@ -42,7 +46,32 @@ class LoadingDialog : AbsDialog<ItoysViewsDialogLoadingBinding>() {
     }
 
     override fun initView(savedInstanceState: Bundle?) {
+        /** 空实现 */
+    }
 
+    fun dismissWithSuccess(message: String) {
+        changeLoadingView(R.drawable.views_icon_loading_success, message)
+
+        mBinding?.viewsIvLoading?.postDelayed(
+            { dismiss() },
+            DISMISS_DELAYED
+        )
+    }
+
+    fun dismissWithError(message: String) {
+        changeLoadingView(R.drawable.views_icon_loading_error, message)
+
+        mBinding?.viewsIvLoading?.postDelayed(
+            { dismiss() },
+            DISMISS_DELAYED
+        )
+    }
+
+    private fun changeLoadingView(@DrawableRes icon: Int, message: String) {
+        mBinding?.viewsLoadingView?.visibility = View.INVISIBLE
+        mBinding?.viewsIvLoading?.visibility = View.VISIBLE
+        mBinding?.viewsTvLoadingText?.text = message
+        mBinding?.viewsIvLoading?.setImageResource(icon)
     }
 
     override fun dialogHorizontalMargin(): Int = horizontalMargin

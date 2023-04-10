@@ -3,6 +3,7 @@ package com.itoys.app.simple.main.mvi
 import com.itoys.base.mvi.AbsViewModel
 import com.itoys.base.mvi.LoadingUIState
 import com.itoys.base.mvi.ToastUIState
+import com.itoys.expansion.then
 
 /**
  * @author Fanfan.gu <a href="mailto:fanfan.work@outlook.com">Contact me.</a>
@@ -20,8 +21,12 @@ class MainViewModel : AbsViewModel<MainUIState, MainUIIntent>() {
                 testToast()
             }
 
-            is MainUIIntent.TestLoading -> {
+            is MainUIIntent.TestShowLoading -> {
                 testLoading(intent.showLoading)
+            }
+
+            is MainUIIntent.TestStateLoading -> {
+                testStateLoading(intent.isSuccess)
             }
         }
     }
@@ -38,5 +43,17 @@ class MainViewModel : AbsViewModel<MainUIState, MainUIIntent>() {
      */
     private fun testLoading(showLoading: Boolean) {
         sendLoadingUIState { LoadingUIState.Loading(showLoading = showLoading) }
+    }
+
+    /**
+     * main intent test state loading.
+     */
+    private fun testStateLoading(isSuccess: Boolean) {
+        sendLoadingUIState {
+            LoadingUIState.State(
+                isSuccess = isSuccess,
+                message = isSuccess.then("请求成功", "请求失败")
+            )
+        }
     }
 }

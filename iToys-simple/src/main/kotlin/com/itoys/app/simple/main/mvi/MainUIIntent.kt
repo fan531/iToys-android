@@ -11,5 +11,7 @@ sealed class MainUIIntent : IUIIntent {
 
     object TestToast : MainUIIntent()
 
-    class TestLoading(val showLoading: Boolean) : MainUIIntent()
+    class TestShowLoading(val showLoading: Boolean) : MainUIIntent()
+
+    class TestStateLoading(val isSuccess: Boolean) : MainUIIntent()
 }

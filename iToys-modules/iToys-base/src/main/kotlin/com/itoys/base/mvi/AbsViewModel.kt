@@ -132,7 +132,7 @@ abstract class AbsViewModel<U : IUIState, I : IUIIntent> : ViewModel(),
             when {
                 showToast -> sendToastUIState { ToastUIState.Toast(msg) }
                 showSnack -> sendToastUIState { ToastUIState.Snack(msg) }
-                else -> sendLoadingUIState { LoadingUIState.Error(msg) }
+                else -> sendLoadingUIState { LoadingUIState.State(isSuccess = true, message = msg) }
             }
         },
         request: suspend () -> BaseEntity<T>,

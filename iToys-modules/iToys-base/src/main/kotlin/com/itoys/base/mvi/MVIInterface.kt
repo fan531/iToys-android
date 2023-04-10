@@ -23,18 +23,16 @@ sealed class LoadingUIState {
 
     data class Loading(var showLoading: Boolean) : LoadingUIState()
 
-    data class Success(val message: String) : LoadingUIState()
-
-    data class Error(val message: String) : LoadingUIState()
+    data class State(val isSuccess: Boolean, val message: String) : LoadingUIState()
 }
 
 /**
  * toast 状态
  */
 sealed class ToastUIState {
-    data class Toast(val toastMsg: String) : ToastUIState()
+    data class Toast(val message: String) : ToastUIState()
 
-    data class Snack(val snackMsg: String) : ToastUIState()
+    data class Snack(val message: String) : ToastUIState()
 }
 
 /**
