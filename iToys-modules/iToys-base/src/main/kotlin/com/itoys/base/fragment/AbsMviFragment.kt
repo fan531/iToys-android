@@ -9,6 +9,7 @@ import com.itoys.base.mvi.IUIState
 import com.itoys.base.mvi.LoadingUIState
 import com.itoys.base.mvi.ToastUIState
 import com.itoys.views.loading.LoadingDialog
+import com.itoys.views.snack.makeSnack
 import com.itoys.views.toast.normalToast
 
 /**
@@ -69,14 +70,13 @@ abstract class AbsMviFragment<VB : ViewBinding,
             viewModel.loadingUiStateFlow.collect { state ->
                 when (state) {
                     is LoadingUIState.Loading -> {
-                        if (state.showLoading) {
-                            if (loadingDialog == null) {
-                                loadingDialog = LoadingDialog.newDialog {  }
-                            }
+                        loadingDialog?.dismiss()
+                        loadingDialog?.onDestroy()
+                        loadingDialog = null
 
-                            loadingDialog?.showDialog(fm = parentFragmentManager)
-                        } else {
-                            loadingDialog?.dismiss()
+                        if (state.showLoading) {
+                            loadingDialog = LoadingDialog.newDialog {  }
+                            loadingDialog?.showDialog(fm = childFragmentManager)
                         }
                     }
 
@@ -86,9 +86,12 @@ abstract class AbsMviFragment<VB : ViewBinding,
                         } else {
                             loadingDialog?.dismissWithError(state.message)
                         }
+
+                        loadingDialog?.onDestroy()
+                        loadingDialog = null
                     }
 
-                    else -> {}
+                    else -> {/* 空实现 */}
                 }
             }
         }
@@ -106,11 +109,10 @@ abstract class AbsMviFragment<VB : ViewBinding,
                     }
 
                     is ToastUIState.Snack -> {
-                        // snack message
-
+                        makeSnack(state.message)
                     }
 
-                    else -> {}
+                    else -> {/* 空实现 */}
                 }
             }
         }

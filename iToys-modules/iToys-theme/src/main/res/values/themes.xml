@@ -23,6 +23,7 @@
         <item name="colorOnPrimary">@color/theme_colorful_white</item>
         <item name="android:clipToPadding">false</item>
         <item name="android:windowBackground">@color/theme_colorful_FAFAFA</item>
+        <item name="android:windowTranslucentStatus">true</item>
 
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

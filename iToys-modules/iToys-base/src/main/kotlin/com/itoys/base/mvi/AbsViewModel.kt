@@ -5,6 +5,7 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.itoys.expansion.invalid
+import com.itoys.expansion.launchOnIO
 import com.itoys.logcat.logcat
 import com.itoys.network.entity.ApiState
 import com.itoys.network.entity.BaseEntity
@@ -15,6 +16,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
@@ -42,13 +44,13 @@ abstract class AbsViewModel<U : IUIState, I : IUIIntent> : ViewModel(),
     /** view 事件 */
     private val _uiIntentFlow: Channel<I> = Channel()
 
-    /** loading 状态 flow */
-    private val _loadingUiStateFlow: MutableStateFlow<LoadingUIState?> by lazy { MutableStateFlow(null) }
-    val loadingUiStateFlow: StateFlow<LoadingUIState?> = _loadingUiStateFlow
+    /** loading 事件 */
+    private val _loadingIntentFlow: Channel<LoadingUIState> = Channel()
+    val loadingUiStateFlow: Flow<LoadingUIState?> = _loadingIntentFlow.receiveAsFlow()
 
     /** toast 状态 flow */
-    private val _toastUiStateFlow: MutableStateFlow<ToastUIState?> by lazy { MutableStateFlow(null) }
-    val toastUiStateFlow: StateFlow<ToastUIState?> = _toastUiStateFlow
+    private val _toastUiStateFlow: Channel<ToastUIState> = Channel()
+    val toastUiStateFlow: Flow<ToastUIState?> = _toastUiStateFlow.receiveAsFlow()
 
     init {
         launchOnUI {
@@ -69,29 +71,29 @@ abstract class AbsViewModel<U : IUIState, I : IUIIntent> : ViewModel(),
     /**
      * 发送 view 状态
      */
-    fun sendUIState(copy: U.() -> U) {
-        _uiStateFlow.update { copy(_uiStateFlow.value) }
+    fun sendUIState(block: U.() -> U) {
+        _uiStateFlow.update { block(_uiStateFlow.value) }
     }
 
     /**
      * 发送 loading 状态
      */
-    fun sendLoadingUIState(copy: LoadingUIState?.() -> LoadingUIState) {
-        _loadingUiStateFlow.update { copy(_loadingUiStateFlow.value) }
+    fun sendLoadingUIState(block: LoadingUIState) {
+        launchOnUI { _loadingIntentFlow.send(block) }
     }
 
     /**
      * 发送 toast 状态
      */
-    fun sendToastUIState(copy: ToastUIState?.() -> ToastUIState) {
-        _toastUiStateFlow.update { copy(_toastUiStateFlow.value) }
+    fun sendToastUIState(block: ToastUIState) {
+        launchOnUI { _toastUiStateFlow.send(block) }
     }
 
     /**
      * 发送 view 事件
      */
     fun sendUIIntent(uiIntent: I) {
-        launchOnUI { _uiIntentFlow.send(uiIntent) }
+        launchOnIO { _uiIntentFlow.send(uiIntent) }
     }
 
     /**
@@ -130,15 +132,15 @@ abstract class AbsViewModel<U : IUIState, I : IUIIntent> : ViewModel(),
         handleEx: suspend (ResultException) -> Unit = { ex ->
             val msg = ex.msg.invalid("请求出现异常")
             when {
-                showToast -> sendToastUIState { ToastUIState.Toast(msg) }
-                showSnack -> sendToastUIState { ToastUIState.Snack(msg) }
-                else -> sendLoadingUIState { LoadingUIState.State(isSuccess = true, message = msg) }
+                showToast -> sendToastUIState(ToastUIState.Toast(msg))
+                showSnack -> sendToastUIState(ToastUIState.Snack(msg))
+                else -> sendLoadingUIState(LoadingUIState.State(isSuccess = true, message = msg))
             }
         },
         request: suspend () -> BaseEntity<T>,
     ) {
         launchOnUI {
-            sendLoadingUIState { LoadingUIState.Loading(showLoading) }
+            sendLoadingUIState(LoadingUIState.Loading(showLoading))
 
             flow {
                 val baseEntity: BaseEntity<T> = request()
@@ -155,7 +157,7 @@ abstract class AbsViewModel<U : IUIState, I : IUIIntent> : ViewModel(),
                 .onCompletion {
                     logcat { "$requestTag is completion." }
                     if (showLoading) {
-                        sendLoadingUIState { LoadingUIState.Loading(showLoading = false) }
+                        sendLoadingUIState(LoadingUIState.Loading(showLoading = false))
                     }
                 }
                 .catch {  exception ->

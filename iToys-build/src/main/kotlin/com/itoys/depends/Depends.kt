@@ -27,6 +27,8 @@ object Depends {
     const val gson = "com.google.code.gson:gson:2.10.1"
     const val jackson = "com.fasterxml.jackson.module:jackson-module-kotlin:2.14.+"
 
+    const val leakcanary = "com.squareup.leakcanary:leakcanary-android:2.10"
+
     /** 沉浸式状态栏和沉浸式导航栏管理 */
     const val immersionbar = "com.geyifeng.immersionbar:immersionbar:${Versions.immersionbar}"
     const val immersionbar_ktx = "com.geyifeng.immersionbar:immersionbar-ktx:${Versions.immersionbar}"

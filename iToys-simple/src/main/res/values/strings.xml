@@ -10,4 +10,6 @@
     <string name="simple_str_show_loading">SHOW Loading</string>
     <string name="simple_str_show_loading_success">Loading Success</string>
     <string name="simple_str_show_loading_error">Loading Error</string>
+    <string name="simple_str_show_mack_snack">Make Snack</string>
+    <string name="simple_str_show_snack">这是一条 Snack 消息</string>
 </resources>

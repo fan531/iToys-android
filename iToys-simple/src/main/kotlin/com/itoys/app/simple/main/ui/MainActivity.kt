@@ -9,6 +9,7 @@ import com.itoys.app.simple.main.mvi.MainUIIntent
 import com.itoys.app.simple.main.mvi.MainViewModel
 import com.itoys.app.simple.viewmodel.MainViewModelFactory
 import com.itoys.base.activity.AbsMviActivity
+import com.itoys.base.mvi.ToastUIState
 import com.itoys.expansion.doOnClick
 import com.itoys.views.toast.errorToast
 import com.itoys.views.toast.infoToast
@@ -44,23 +45,24 @@ class MainActivity : AbsMviActivity<ItoysSimpleActivityMainBinding, MainViewMode
         mBinding?.simpleBtnToastyError?.doOnClick { errorToast(R.string.simple_str_toasty_error) }
         mBinding?.simpleBtnShowLoading?.doOnClick {
             showLoading(
-                mBinding?.simpleBtnShowLoading,
-                MainUIIntent.TestShowLoading(showLoading = false)
+                mBinding?.simpleBtnShowLoading, MainUIIntent.TestShowLoading(showLoading = false)
             )
         }
 
         mBinding?.simpleBtnLoadingSuccess?.doOnClick {
             showLoading(
-                mBinding?.simpleBtnLoadingSuccess,
-                MainUIIntent.TestStateLoading(isSuccess = true)
+                mBinding?.simpleBtnLoadingSuccess, MainUIIntent.TestStateLoading(isSuccess = true)
             )
         }
 
         mBinding?.simpleBtnLoadingError?.doOnClick {
             showLoading(
-                mBinding?.simpleBtnLoadingSuccess,
-                MainUIIntent.TestStateLoading(isSuccess = false)
+                mBinding?.simpleBtnLoadingSuccess, MainUIIntent.TestStateLoading(isSuccess = false)
             )
+        }
+
+        mBinding?.simpleBtnSnack?.doOnClick {
+            mViewModel.sendToastUIState(ToastUIState.Snack(getString(R.string.simple_str_show_snack)))
         }
     }
 
@@ -68,8 +70,7 @@ class MainActivity : AbsMviActivity<ItoysSimpleActivityMainBinding, MainViewMode
         mViewModel.sendUIIntent(MainUIIntent.TestShowLoading(showLoading = true))
 
         view?.postDelayed(
-            { mViewModel.sendUIIntent(postIntent) },
-            2000
+            { mViewModel.sendUIIntent(postIntent) }, 2000
         )
     }
 

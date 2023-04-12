@@ -35,25 +35,25 @@ class MainViewModel : AbsViewModel<MainUIState, MainUIIntent>() {
      * main intent test toast.
      */
     private fun testToast() {
-        sendToastUIState { ToastUIState.Toast("test toast") }
+        sendToastUIState(ToastUIState.Toast("test toast"))
     }
 
     /**
      * main intent test loading.
      */
     private fun testLoading(showLoading: Boolean) {
-        sendLoadingUIState { LoadingUIState.Loading(showLoading = showLoading) }
+        sendLoadingUIState(LoadingUIState.Loading(showLoading = showLoading))
     }
 
     /**
      * main intent test state loading.
      */
     private fun testStateLoading(isSuccess: Boolean) {
-        sendLoadingUIState {
+        sendLoadingUIState(
             LoadingUIState.State(
                 isSuccess = isSuccess,
                 message = isSuccess.then("请求成功", "请求失败")
             )
-        }
+        )
     }
 }

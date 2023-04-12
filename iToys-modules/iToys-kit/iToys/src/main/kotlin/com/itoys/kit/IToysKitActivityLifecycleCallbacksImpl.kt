@@ -20,7 +20,7 @@ class IToysKitActivityLifecycleCallbacksImpl : Application.ActivityLifecycleCall
 
         val INSTANCE = IToysKitActivityLifecycleCallbacksImpl()
 
-        private val ignoreActivityClassNames = arrayOf("DisplayLeakActivity", "ToolPanelActivity")
+        private val ignoreActivityClassNames = arrayOf("LeakActivity", "DisplayLeakActivity", "ToolPanelActivity")
 
         fun ignoreCurrentActivityIToysView(activity: Activity): Boolean {
             ignoreActivityClassNames.forEach { name ->

@@ -17,6 +17,7 @@ import com.itoys.expansion.tagName
 import com.itoys.expansion.then
 import com.itoys.kit.repository.IToysKitRepository
 import com.itoys.utils.ActivityUtils
+import com.itoys.utils.BarUtils
 import com.itoys.utils.ScreenUtils
 import java.lang.ref.WeakReference
 
@@ -242,6 +243,11 @@ abstract class AbsIToysKitView : IToysKitView {
 
         mKitViewPositionInfo.setPortrait()
         mNormalLayoutParams?.also {
+            // 控制 kit view 在状态栏下面
+            if (it.topMargin <= 0) {
+                it.topMargin = BarUtils.getStatusBarHeight()
+            }
+
             mKitViewPositionInfo.setStartMargin(it.leftMargin)
             mKitViewPositionInfo.setTopMargin(it.topMargin)
         }

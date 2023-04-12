@@ -2,7 +2,6 @@ package com.itoys.base.activity
 
 import android.os.Bundle
 import com.drake.brv.BindingAdapter
-import com.drake.brv.utils.setup
 import com.itoys.base.databinding.ItoysActivityListWithinTitleBinding
 import com.itoys.base.mvi.AbsListViewModel
 import com.itoys.base.mvi.ListUIIntent

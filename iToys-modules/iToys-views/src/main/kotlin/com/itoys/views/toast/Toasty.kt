@@ -32,7 +32,7 @@ object Toasty {
     private var toastTextSize: Int = 14
 
     private var tintIcon: Boolean = false
-    private var allowQueue: Boolean = true
+    private var allowQueue: Boolean = false
     private var toastGravity: Int = Gravity.CENTER
     private var xOffset: Int = 0
     private var yOffset: Int = 0

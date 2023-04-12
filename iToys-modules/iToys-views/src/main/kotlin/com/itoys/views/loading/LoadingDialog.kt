@@ -17,7 +17,7 @@ import com.itoys.views.dialog.AbsDialog
 class LoadingDialog : AbsDialog<ItoysViewsDialogLoadingBinding>() {
 
     companion object {
-        private const val DISMISS_DELAYED = 1500L
+        private const val DISMISS_DELAYED = 600L
 
         fun newDialog(builder: Builder.() -> Unit): LoadingDialog {
             val build = Builder().apply(builder).build()
@@ -51,30 +51,28 @@ class LoadingDialog : AbsDialog<ItoysViewsDialogLoadingBinding>() {
 
     fun dismissWithSuccess(message: String) {
         changeLoadingView(R.drawable.views_icon_loading_success, message)
-
-        mBinding?.viewsIvLoading?.postDelayed(
-            { dismiss() },
-            DISMISS_DELAYED
-        )
     }
 
     fun dismissWithError(message: String) {
         changeLoadingView(R.drawable.views_icon_loading_error, message)
+    }
+
+    private fun changeLoadingView(@DrawableRes icon: Int, message: String) {
+        mBinding?.viewsLoadingView?.indeterminateDrawable?.stop()
+        mBinding?.viewsLoadingView?.visibility = View.INVISIBLE
+        mBinding?.viewsIvLoading?.visibility = View.VISIBLE
+        mBinding?.viewsTvLoadingText?.text = message
+        mBinding?.viewsIvLoading?.setImageResource(icon)
 
         mBinding?.viewsIvLoading?.postDelayed(
             { dismiss() },
             DISMISS_DELAYED
         )
-    }
-
-    private fun changeLoadingView(@DrawableRes icon: Int, message: String) {
-        mBinding?.viewsLoadingView?.visibility = View.INVISIBLE
-        mBinding?.viewsIvLoading?.visibility = View.VISIBLE
-        mBinding?.viewsTvLoadingText?.text = message
-        mBinding?.viewsIvLoading?.setImageResource(icon)
     }
 
     override fun dialogHorizontalMargin(): Int = horizontalMargin
 
     override fun dialogGravity(): Int = Gravity.CENTER
+
+    override fun touchCancelable(): Boolean = false
 }

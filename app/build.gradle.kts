@@ -30,9 +30,11 @@ android {
 
 dependencies {
     implementation(Jetpacks.activity)
-    implementation(Jetpacks.core)
     implementation(Jetpacks.appcompat)
+    implementation(Jetpacks.core)
+
     implementation(Depends.kotlin_stdlib)
+    debugImplementation(Depends.leakcanary)
 
     implementation(Modules.iToysSimple(project))
 
