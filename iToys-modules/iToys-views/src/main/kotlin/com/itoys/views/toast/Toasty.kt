@@ -9,6 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.itoys.expansion.backgroundExt
 import com.itoys.expansion.color
@@ -259,6 +261,46 @@ object Toasty {
     }
 
     fun custom(
+        context: Context,
+        @StringRes message: Int,
+        duration: Int = LENGTH_SHORT,
+        @DrawableRes icon: Int,
+        @ColorRes tintColor: Int,
+        @ColorRes textColor: Int,
+    ): Toast {
+        return custom(
+            context = context,
+            message = context.getString(message),
+            duration = duration,
+            icon = icon,
+            tintColor = tintColor,
+            textColor = textColor,
+        )
+    }
+
+    fun custom(
+        context: Context,
+        message: String,
+        duration: Int = LENGTH_SHORT,
+        @DrawableRes icon: Int,
+        @ColorRes tintColor: Int,
+        @ColorRes textColor: Int,
+    ): Toast {
+        val customIcon = context.drawable(icon)
+
+        return custom(
+            context = context,
+            message = message,
+            icon = customIcon,
+            tintColor = context.color(tintColor),
+            textColor = context.color(textColor),
+            withIcon = customIcon != null,
+            duration = duration,
+            shouldTint = true
+        )
+    }
+
+    private fun custom(
         context: Context,
         message: CharSequence,
         icon: Drawable?,

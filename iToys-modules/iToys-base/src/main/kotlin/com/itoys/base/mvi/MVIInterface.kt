@@ -1,5 +1,8 @@
 package com.itoys.base.mvi
 
+import com.itoys.views.snack.Prompt
+import com.itoys.views.toast.ToastyStatus
+
 /**
  * @author Fanfan.gu <a href="mailto:fanfan.work@outlook.com">Contact me.</a>
  * @date 06/04/2023
@@ -30,9 +33,18 @@ sealed class LoadingUIState {
  * toast 状态
  */
 sealed class ToastUIState {
-    data class Toast(val message: String) : ToastUIState()
+    data class Toast(
+        val message: String,
+        val status: ToastyStatus? = null
+    ) : ToastUIState()
 
-    data class Snack(val message: String) : ToastUIState()
+    data class TopSnack(
+        val message: String,
+        val withLoading: Boolean = false,
+        val prompt: Prompt? = null
+    ) : ToastUIState()
+
+    data class BottomSnack(val message: String, val prompt: Prompt? = null) : ToastUIState()
 }
 
 /**

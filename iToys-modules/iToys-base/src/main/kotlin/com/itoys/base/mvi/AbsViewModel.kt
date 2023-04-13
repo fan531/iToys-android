@@ -126,14 +126,16 @@ abstract class AbsViewModel<U : IUIState, I : IUIIntent> : ViewModel(),
     fun <T : Any> launchRequestWithFlow(
         showLoading: Boolean = true,
         showToast: Boolean = true,
-        showSnack: Boolean = false,
+        showTopSnack: Boolean = false,
+        showBottomSnack: Boolean = false,
         requestTag: String = "",
         success: ((T?) -> Unit)? = null,
         handleEx: suspend (ResultException) -> Unit = { ex ->
             val msg = ex.msg.invalid("请求出现异常")
             when {
                 showToast -> sendToastUIState(ToastUIState.Toast(msg))
-                showSnack -> sendToastUIState(ToastUIState.Snack(msg))
+                showTopSnack -> sendToastUIState(ToastUIState.TopSnack(msg))
+                showBottomSnack -> sendToastUIState(ToastUIState.BottomSnack(msg))
                 else -> sendLoadingUIState(LoadingUIState.State(isSuccess = true, message = msg))
             }
         },

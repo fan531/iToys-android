@@ -3,6 +3,7 @@ package com.itoys.app.simple.main.ui
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
+import androidx.annotation.StringRes
 import com.itoys.app.simple.R
 import com.itoys.app.simple.databinding.ItoysSimpleActivityMainBinding
 import com.itoys.app.simple.main.mvi.MainUIIntent
@@ -11,10 +12,9 @@ import com.itoys.app.simple.viewmodel.MainViewModelFactory
 import com.itoys.base.activity.AbsMviActivity
 import com.itoys.base.mvi.ToastUIState
 import com.itoys.expansion.doOnClick
-import com.itoys.views.toast.errorToast
-import com.itoys.views.toast.infoToast
-import com.itoys.views.toast.successToast
-import com.itoys.views.toast.warningToast
+import com.itoys.views.snack.Prompt
+import com.itoys.views.toast.ToastyStatus
+import com.itoys.views.toast.toast
 
 /**
  * @author Fanfan.gu <a href="mailto:fanfan.work@outlook.com">Contact me.</a>
@@ -39,10 +39,30 @@ class MainActivity : AbsMviActivity<ItoysSimpleActivityMainBinding, MainViewMode
         mBinding?.simpleBtnToastyNormal?.doOnClick {
             mViewModel.sendUIIntent(MainUIIntent.TestToast)
         }
-        mBinding?.simpleBtnToastyInfo?.doOnClick { infoToast(R.string.simple_str_toasty_info) }
-        mBinding?.simpleBtnToastyWarning?.doOnClick { warningToast(R.string.simple_str_toasty_warning) }
-        mBinding?.simpleBtnToastySuccess?.doOnClick { successToast(R.string.simple_str_toasty_success) }
-        mBinding?.simpleBtnToastyError?.doOnClick { errorToast(R.string.simple_str_toasty_error) }
+        mBinding?.simpleBtnToastyInfo?.doOnClick {
+            showToast(
+                R.string.simple_str_toasty_info,
+                status = ToastyStatus.INFO
+            )
+        }
+        mBinding?.simpleBtnToastyWarning?.doOnClick {
+            showToast(
+                R.string.simple_str_toasty_warning,
+                status = ToastyStatus.WARING
+            )
+        }
+        mBinding?.simpleBtnToastySuccess?.doOnClick {
+            showToast(
+                R.string.simple_str_toasty_success,
+                status = ToastyStatus.SUCCESS
+            )
+        }
+        mBinding?.simpleBtnToastyError?.doOnClick {
+            showToast(
+                R.string.simple_str_toasty_error,
+                status = ToastyStatus.ERROR
+            )
+        }
         mBinding?.simpleBtnShowLoading?.doOnClick {
             showLoading(
                 mBinding?.simpleBtnShowLoading, MainUIIntent.TestShowLoading(showLoading = false)
@@ -62,8 +82,17 @@ class MainActivity : AbsMviActivity<ItoysSimpleActivityMainBinding, MainViewMode
         }
 
         mBinding?.simpleBtnSnack?.doOnClick {
-            mViewModel.sendToastUIState(ToastUIState.Snack(getString(R.string.simple_str_show_snack)))
+            mViewModel.sendToastUIState(
+                ToastUIState.TopSnack(
+                    getString(R.string.simple_str_show_snack),
+                    prompt = Prompt.SUCCESS
+                )
+            )
         }
+    }
+
+    private fun showToast(@StringRes messageId: Int, status: ToastyStatus? = null) {
+        toast(messageId, status = status)
     }
 
     private fun showLoading(view: View?, postIntent: MainUIIntent) {

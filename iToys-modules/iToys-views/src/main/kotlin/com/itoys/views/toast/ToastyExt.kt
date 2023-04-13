@@ -10,82 +10,50 @@ import com.itoys.utils.UtilsInitialization
  * @desc
  */
 
-fun Any.normalToast(@StringRes message: Int, duration: Int = Toasty.LENGTH_SHORT) {
-    UtilsInitialization.requireApp().normalToast(message, duration)
+fun Any.toast(
+    @StringRes message: Int,
+    duration: Int = Toasty.LENGTH_SHORT,
+    status: ToastyStatus? = null
+) {
+    if (status != null) {
+        Toasty.custom(
+            UtilsInitialization.requireApp(),
+            message,
+            duration = duration,
+            icon = status.icon,
+            tintColor = status.tintColor,
+            textColor = status.textColor,
+        ).show()
+    } else {
+        Toasty.normal(
+            UtilsInitialization.requireApp(),
+            message,
+            icon = null,
+            duration = duration
+        ).show()
+    }
 }
 
-fun Any.normalToast(message: String, duration: Int = Toasty.LENGTH_SHORT) {
-    UtilsInitialization.requireApp().normalToast(message, duration)
-}
-
-fun Context.normalToast(@StringRes message: Int, duration: Int) {
-    Toasty.normal(this, message, duration = duration).show()
-}
-
-fun Context.normalToast(message: String, duration: Int) {
-    Toasty.normal(this, message, duration = duration).show()
-}
-
-fun Any.infoToast(@StringRes message: Int, duration: Int = Toasty.LENGTH_SHORT) {
-    UtilsInitialization.requireApp().infoToast(message, duration)
-}
-
-fun Any.infoToast(message: String, duration: Int = Toasty.LENGTH_SHORT) {
-    UtilsInitialization.requireApp().infoToast(message, duration)
-}
-
-fun Context.infoToast(@StringRes message: Int, duration: Int) {
-    Toasty.info(this, message, duration = duration).show()
-}
-
-fun Context.infoToast(message: String, duration: Int) {
-    Toasty.info(this, message, duration = duration).show()
-}
-
-fun Any.warningToast(@StringRes message: Int, duration: Int = Toasty.LENGTH_SHORT) {
-    UtilsInitialization.requireApp().warningToast(message, duration)
-}
-
-fun Any.warningToast(message: String, duration: Int = Toasty.LENGTH_SHORT) {
-    UtilsInitialization.requireApp().warningToast(message, duration)
-}
-
-fun Context.warningToast(@StringRes message: Int, duration: Int) {
-    Toasty.warning(this, message, duration = duration).show()
-}
-
-fun Context.warningToast(message: String, duration: Int) {
-    Toasty.warning(this, message, duration = duration).show()
-}
-
-fun Any.successToast(@StringRes message: Int, duration: Int = Toasty.LENGTH_SHORT) {
-    UtilsInitialization.requireApp().successToast(message, duration)
-}
-
-fun Any.successToast(message: String, duration: Int = Toasty.LENGTH_SHORT) {
-    UtilsInitialization.requireApp().successToast(message, duration)
-}
-
-fun Context.successToast(@StringRes message: Int, duration: Int) {
-    Toasty.success(this, message, duration = duration).show()
-}
-
-fun Context.successToast(message: String, duration: Int) {
-    Toasty.success(this, message, duration = duration).show()
-}
-
-fun Any.errorToast(@StringRes message: Int, duration: Int = Toasty.LENGTH_SHORT) {
-    UtilsInitialization.requireApp().errorToast(message, duration)
-}
-
-fun Any.errorToast(message: String, duration: Int = Toasty.LENGTH_SHORT) {
-    UtilsInitialization.requireApp().errorToast(message, duration)
-}
-
-fun Context.errorToast(@StringRes message: Int, duration: Int) {
-    Toasty.error(this, message, duration = duration).show()
-}
-
-fun Context.errorToast(message: String, duration: Int) {
-    Toasty.error(this, message, duration = duration).show()
+fun Any.toast(
+    message: String,
+    duration: Int = Toasty.LENGTH_SHORT,
+    status: ToastyStatus? = null
+) {
+    if (status != null) {
+        Toasty.custom(
+            UtilsInitialization.requireApp(),
+            message,
+            duration = duration,
+            icon = status.icon,
+            tintColor = status.tintColor,
+            textColor = status.textColor,
+        ).show()
+    } else {
+        Toasty.normal(
+            UtilsInitialization.requireApp(),
+            message,
+            icon = null,
+            duration = duration
+        ).show()
+    }
 }

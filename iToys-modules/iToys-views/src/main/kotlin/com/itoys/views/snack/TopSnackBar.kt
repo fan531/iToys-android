@@ -589,7 +589,7 @@ class TopSnackBar {
          * @param [snackBar] The snackbar which is now visible.
          * @see TopSnackBar.show
          */
-        fun onShown(snackBar: TopSnackBar?) {}
+        open fun onShown(snackBar: TopSnackBar?) {}
 
         /**
          * Called when the given [TopSnackBar] has been dismissed, either through a time-out,
@@ -602,6 +602,6 @@ class TopSnackBar {
          * [.DISMISS_EVENT_CONSECUTIVE].
          * @see TopSnackBar.dismiss
          */
-        fun onDismissed(snackBar: TopSnackBar?, @DismissEvent event: Int) {}
+        open fun onDismissed(snackBar: TopSnackBar?, @DismissEvent event: Int) {}
     }
 }

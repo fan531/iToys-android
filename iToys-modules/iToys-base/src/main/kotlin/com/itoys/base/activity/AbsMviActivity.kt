@@ -9,8 +9,9 @@ import com.itoys.base.mvi.IUIState
 import com.itoys.base.mvi.LoadingUIState
 import com.itoys.base.mvi.ToastUIState
 import com.itoys.views.loading.LoadingDialog
+import com.itoys.views.snack.TopSnackBar
 import com.itoys.views.snack.makeSnack
-import com.itoys.views.toast.normalToast
+import com.itoys.views.toast.toast
 
 /**
  * @author Fanfan.gu <a href="mailto:fanfan.work@outlook.com">Contact me.</a>
@@ -66,7 +67,7 @@ abstract class AbsMviActivity<VB : ViewBinding,
                         loadingDialog = null
 
                         if (state.showLoading) {
-                            loadingDialog = LoadingDialog.newDialog {  }
+                            loadingDialog = LoadingDialog.newDialog { }
                             loadingDialog?.showDialog(fm = supportFragmentManager)
                         }
                     }
@@ -82,7 +83,8 @@ abstract class AbsMviActivity<VB : ViewBinding,
                         loadingDialog = null
                     }
 
-                    else -> {/* 空实现 */}
+                    else -> {/* 空实现 */
+                    }
                 }
             }
         }
@@ -96,14 +98,27 @@ abstract class AbsMviActivity<VB : ViewBinding,
             viewModel.toastUiStateFlow.collect { state ->
                 when (state) {
                     is ToastUIState.Toast -> {
-                       normalToast(state.message)
+                        toast(state.message, status = state.status)
                     }
 
-                    is ToastUIState.Snack -> {
-                       makeSnack(state.message)
+                    is ToastUIState.TopSnack -> {
+                        makeSnack(
+                            state.message,
+                            appearDirection = TopSnackBar.APPEAR_FROM_TOP_TO_DOWN,
+                            withLoading = state.withLoading,
+                            prompt = state.prompt
+                        )
                     }
 
-                    else -> {/* 空实现 */}
+                    is ToastUIState.BottomSnack -> {
+                        makeSnack(
+                            state.message,
+                            appearDirection = TopSnackBar.APPEAR_FROM_BOTTOM_TO_TOP,
+                        )
+                    }
+
+                    else -> {/* 空实现 */
+                    }
                 }
             }
         }

@@ -10,8 +10,8 @@ import com.itoys.views.R
  * @desc
  */
 enum class Prompt(
-    @DrawableRes icon: Int,
-    @ColorRes backgroundColor: Int,
+    @DrawableRes val icon: Int,
+    @ColorRes val backgroundColor: Int,
 ) {
 
     SUCCESS(

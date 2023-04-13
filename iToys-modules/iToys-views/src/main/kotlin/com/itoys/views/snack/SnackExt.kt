@@ -2,22 +2,51 @@ package com.itoys.views.snack
 
 import android.app.Activity
 import androidx.fragment.app.Fragment
+import com.itoys.expansion.color
+import com.itoys.expansion.drawable
+import com.itoys.views.snack.TopSnackUtils.snackCallback
+import com.itoys.views.snack.TopSnackUtils.topSnackBar
 
-/**
- * @author Fanfan.gu <a href="mailto:fanfan.work@outlook.com">Contact me.</a>
- * @date 12/04/2023
- * @desc
- */
-private var snackBar: TopSnackBar? = null
+object TopSnackUtils {
+    var topSnackBar: TopSnackBar? = null
 
-fun Activity.makeSnack(message: String) {
-    snackBar = TopSnackBar.make(window.decorView, message, TopSnackBar.LENGTH_SHORT)
-    snackBar?.show()
+    val snackCallback : TopSnackBar.Callback by lazy {
+        object : TopSnackBar.Callback() {
+            override fun onDismissed(snackBar: TopSnackBar?, event: Int) {
+                super.onDismissed(snackBar, event)
+                topSnackBar = null
+            }
+        }
+    }
 }
 
-fun Fragment.makeSnack(message: String) {
-    activity?.let {
-        snackBar = TopSnackBar.make(it.window.decorView, message, TopSnackBar.LENGTH_SHORT)
-        snackBar?.show()
+
+
+fun Activity.makeSnack(
+    message: String,
+    duration: Int = TopSnackBar.LENGTH_SHORT,
+    appearDirection: Int = TopSnackBar.APPEAR_FROM_BOTTOM_TO_TOP,
+    withLoading: Boolean = false,
+    prompt: Prompt? = null
+) {
+    topSnackBar = TopSnackBar.make(window.decorView, message, duration, appearDirection)
+    topSnackBar?.setCallback(snackCallback)
+    prompt?.let { p ->
+        topSnackBar?.setBackgroundColor(color(p.backgroundColor))
+        topSnackBar?.addIcon(drawable(p.icon))
     }
+    if (withLoading) {
+        topSnackBar?.addLoadingIcon()
+    }
+    topSnackBar?.show()
+}
+
+fun Fragment.makeSnack(
+    message: String,
+    duration: Int = TopSnackBar.LENGTH_SHORT,
+    appearDirection: Int = TopSnackBar.APPEAR_FROM_BOTTOM_TO_TOP,
+    withLoading: Boolean = false,
+    prompt: Prompt? = null
+) {
+    activity?.makeSnack(message, duration, appearDirection, withLoading, prompt)
 }

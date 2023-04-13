@@ -35,6 +35,11 @@
 * [Android-SpinKit](https://github.com/ybq/Android-SpinKit): Android loading animations.
 * [cryptography](https://github.com/whyoleg/cryptography-kotlin): Type-safe Multiplatform cryptography library for Kotlin.
 
+### 参考
+
+* [Toasty](https://github.com/GrenderG/Toasty): The usual Toast, but with steroids 💪
+* [MySnackBar](https://github.com/guoyoujin/MySnackBar): 从上面往下面滑出的snackBar.
+
 ### TODO list
 
  - [ ] loading, toast, snack
