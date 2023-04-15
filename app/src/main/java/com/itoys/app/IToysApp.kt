@@ -4,6 +4,8 @@ import android.app.Application
 import com.itoys.base.app.IToysAppInit
 import com.itoys.base.app.AbsIToysApplication
 import com.itoys.kit.IToysKit
+import com.itoys.views.statelayout.StateConfig
+import com.itoys.views.statelayout.handler.FadeStateChangedHandler
 
 /**
  * @author Fanfan.gu <a href="mailto:fanfan.work@outlook.com">Contact me.</a>
@@ -20,7 +22,11 @@ class IToysApp : AbsIToysApplication() {
             }
 
             override fun asyncInit(application: Application) {
-
+                // 初始化State layout
+                StateConfig.Builder()
+                    .setDefaultId()
+                    .setStateChangedHandler(FadeStateChangedHandler())
+                    .build()
             }
 
             override fun initCompliance(application: Application) {

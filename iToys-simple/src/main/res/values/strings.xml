@@ -12,4 +12,8 @@
     <string name="simple_str_show_loading_error">Loading Error</string>
     <string name="simple_str_show_mack_snack">Make Snack</string>
     <string name="simple_str_show_snack">这是一条 Snack 消息</string>
+
+    <string name="simple_str_main_state_layout">State Layout</string>
+    <string name="simple_str_main_state_empty">Empty State</string>
+    <string name="simple_str_main_state_error">Error State</string>
 </resources>

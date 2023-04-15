@@ -1,6 +1,5 @@
 package com.itoys.app.simple.main.ui
 
-import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.annotation.StringRes
@@ -8,9 +7,11 @@ import com.itoys.app.simple.R
 import com.itoys.app.simple.databinding.ItoysSimpleActivityMainBinding
 import com.itoys.app.simple.main.mvi.MainUIIntent
 import com.itoys.app.simple.main.mvi.MainViewModel
+import com.itoys.app.simple.state.ui.StateLayoutActivity
 import com.itoys.app.simple.viewmodel.MainViewModelFactory
 import com.itoys.base.activity.AbsMviActivity
 import com.itoys.base.mvi.ToastUIState
+import com.itoys.expansion.actOpen
 import com.itoys.expansion.doOnClick
 import com.itoys.views.snack.Prompt
 import com.itoys.views.toast.ToastyStatus
@@ -27,11 +28,6 @@ class MainActivity : AbsMviActivity<ItoysSimpleActivityMainBinding, MainViewMode
 
     override fun createViewBinding(): ItoysSimpleActivityMainBinding {
         return ItoysSimpleActivityMainBinding.inflate(layoutInflater)
-    }
-
-    override fun initView(savedInstanceState: Bundle?) {
-        super.initView(savedInstanceState)
-        mBinding?.simpleTitleBar?.title = activityTitle()
     }
 
     override fun addClickListen() {
@@ -89,6 +85,8 @@ class MainActivity : AbsMviActivity<ItoysSimpleActivityMainBinding, MainViewMode
                 )
             )
         }
+
+        mBinding?.simpleBtnStateLayout?.doOnClick { actOpen(StateLayoutActivity::class) }
     }
 
     private fun showToast(@StringRes messageId: Int, status: ToastyStatus? = null) {

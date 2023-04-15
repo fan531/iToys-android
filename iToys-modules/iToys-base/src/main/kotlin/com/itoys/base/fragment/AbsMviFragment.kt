@@ -60,6 +60,7 @@ abstract class AbsMviFragment<VB : ViewBinding,
 
             loadingStateObserver(viewModel)
             toastStateObserver(viewModel)
+            stateLayoutObserver(viewModel)
         }
     }
 
@@ -76,7 +77,7 @@ abstract class AbsMviFragment<VB : ViewBinding,
                         loadingDialog = null
 
                         if (state.showLoading) {
-                            loadingDialog = LoadingDialog.newDialog {  }
+                            loadingDialog = LoadingDialog.newDialog { }
                             loadingDialog?.showDialog(fm = childFragmentManager)
                         }
                     }
@@ -92,7 +93,9 @@ abstract class AbsMviFragment<VB : ViewBinding,
                         loadingDialog = null
                     }
 
-                    else -> {/* 空实现 */}
+                    else -> {
+                        /* 空实现 */
+                    }
                 }
             }
         }
@@ -125,8 +128,21 @@ abstract class AbsMviFragment<VB : ViewBinding,
                         )
                     }
 
-                    else -> {/* 空实现 */}
+                    else -> {
+                        /* 空实现 */
+                    }
                 }
+            }
+        }
+    }
+
+    /**
+     * state layout 状态订阅
+     */
+    private fun stateLayoutObserver(viewModel: VM) {
+        lifecycleScope.launchWhenStarted {
+            viewModel.stateLayoutUiStateFlow.collect { state ->
+                stateLayout?.showStatus(state?.status)
             }
         }
     }

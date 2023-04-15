@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.itoys.expansion.then
+import com.itoys.views.statelayout.StateLayout
+import com.itoys.views.statelayout.addStateLayout
 
 /**
  * @author Fanfan.gu <a href="mailto:fanfan.work@outlook.com">Contact me.</a>
@@ -18,6 +21,15 @@ abstract class AbsFragment<VB : ViewBinding> : Fragment() {
     private var isLoaded: Boolean = false
 
     protected open var mBinding: VB? = null
+
+    protected open var stateLayout: StateLayout? = null
+
+    /**
+     * 状态栏重试
+     */
+    protected open val stateLayoutRetry: () -> Unit = {
+
+    }
 
     /**
      * 创建ViewBinding.
@@ -34,6 +46,7 @@ abstract class AbsFragment<VB : ViewBinding> : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        loadStateLayout()
         initialize(savedInstanceState)
         addClickListen()
     }
@@ -67,6 +80,26 @@ abstract class AbsFragment<VB : ViewBinding> : Fragment() {
      * 默认需要懒加载
      */
     protected open fun needLazyLoad(): Boolean {
+        return true
+    }
+
+    /**
+     * 加载 state layout.
+     */
+    protected open fun loadStateLayout(view: View? = null) {
+        if (useStateLayout()) {
+            stateLayout = (view == null).then({
+                addStateLayout(retry = stateLayoutRetry)
+            }, {
+                view?.addStateLayout(retry = stateLayoutRetry)
+            })
+        }
+    }
+
+    /**
+     * 使用 state layout
+     */
+    protected open fun useStateLayout(): Boolean {
         return true
     }
 

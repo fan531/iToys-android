@@ -42,6 +42,7 @@ dependencies {
     implementation(Modules.iToysExpansion(project))
     implementation(Modules.iToysLogcat(project))
     implementation(Modules.iToysTheme(project))
+    implementation(Modules.iToysViews(project))
 
     debugImplementation(Modules.iToysKit(project))
     releaseImplementation(Modules.iToysKitNoop(project))

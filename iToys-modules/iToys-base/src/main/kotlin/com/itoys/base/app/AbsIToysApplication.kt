@@ -3,8 +3,11 @@ package com.itoys.base.app
 import android.app.Application
 import android.content.Context
 import androidx.multidex.MultiDex
+import com.itoys.expansion.launchOnIO
 import com.itoys.network.NetworkInitialization
 import com.itoys.utils.SysUtils
+import com.itoys.views.statelayout.StateConfig
+import com.itoys.views.statelayout.StateLayout
 
 /**
  * @author Fanfan.gu <a href="mailto:fanfan.work@outlook.com">Contact me.</a>
@@ -34,8 +37,10 @@ abstract class AbsIToysApplication : Application() {
             appInit.syncInit(application = iToysApp)
         }
 
-        // 注册全局activity生命周期回调
-        appInit.asyncInit(application = iToysApp)
+        launchOnIO {
+            // 注册全局activity生命周期回调
+            appInit.asyncInit(application = iToysApp)
+        }
     }
 
     /**

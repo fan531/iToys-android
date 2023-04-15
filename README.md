@@ -39,11 +39,10 @@
 
 * [Toasty](https://github.com/GrenderG/Toasty): The usual Toast, but with steroids 💪
 * [MySnackBar](https://github.com/guoyoujin/MySnackBar): 从上面往下面滑出的snackBar.
+* [StateLayout](https://github.com/liangjingkanji/StateLayout):  Android上最强大的缺省页框架.
 
 ### TODO list
 
- - [ ] loading, toast, snack
- - [ ] 缺省页
  - [ ] 数据存储, 接口缓存
  - [ ] 图片选择器
  - [ ] 完善工具类、扩展

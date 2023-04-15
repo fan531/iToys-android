@@ -17,6 +17,30 @@ import kotlin.reflect.KClass
  */
 
 /** ext about activity  */
+fun Activity.actOpen(kClass: KClass<out Any>) {
+    kClass.actOpen(this)
+}
+
+fun Activity.actOpen(kClass: KClass<out Any>, vararg extras: Pair<String, Any>) {
+    val bundle = Bundle()
+    extras.forEach { extra ->
+        bundle.put(extra)
+    }
+    kClass.java.actOpen(this, bundle = bundle)
+}
+
+fun Fragment.actOpen(kClass: KClass<out Any>) {
+    kClass.actOpen(requireContext())
+}
+
+fun Fragment.actOpen(kClass: KClass<out Any>, vararg extras: Pair<String, Any>) {
+    val bundle = Bundle()
+    extras.forEach { extra ->
+        bundle.put(extra)
+    }
+    kClass.java.actOpen(requireContext(), bundle = bundle)
+}
+
 fun KClass<out Any>.actOpen(context: Context) {
     this.java.actOpen(context, bundle = Bundle())
 }

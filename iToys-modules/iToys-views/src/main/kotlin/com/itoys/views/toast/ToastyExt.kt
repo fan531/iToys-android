@@ -1,14 +1,7 @@
 package com.itoys.views.toast
 
-import android.content.Context
 import androidx.annotation.StringRes
 import com.itoys.utils.UtilsInitialization
-
-/**
- * @author Fanfan.gu <a href="mailto:fanfan.work@outlook.com">Contact me.</a>
- * @date 09/04/2023
- * @desc
- */
 
 fun Any.toast(
     @StringRes message: Int,

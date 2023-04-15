@@ -51,6 +51,7 @@ abstract class AbsMviActivity<VB : ViewBinding,
 
             loadingStateObserver(viewModel)
             toastStateObserver(viewModel)
+            stateLayoutObserver(viewModel)
         }
     }
 
@@ -83,7 +84,8 @@ abstract class AbsMviActivity<VB : ViewBinding,
                         loadingDialog = null
                     }
 
-                    else -> {/* 空实现 */
+                    else -> {
+                        /* 空实现 */
                     }
                 }
             }
@@ -117,9 +119,21 @@ abstract class AbsMviActivity<VB : ViewBinding,
                         )
                     }
 
-                    else -> {/* 空实现 */
+                    else -> {
+                        /* 空实现 */
                     }
                 }
+            }
+        }
+    }
+
+    /**
+     * state layout 状态订阅
+     */
+    private fun stateLayoutObserver(viewModel: VM) {
+        lifecycleScope.launchWhenStarted {
+            viewModel.stateLayoutUiStateFlow.collect { state ->
+                stateLayout?.showStatus(state?.status)
             }
         }
     }

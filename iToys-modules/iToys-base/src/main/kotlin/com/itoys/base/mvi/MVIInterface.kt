@@ -1,6 +1,7 @@
 package com.itoys.base.mvi
 
 import com.itoys.views.snack.Prompt
+import com.itoys.views.statelayout.PageStatus
 import com.itoys.views.toast.ToastyStatus
 
 /**
@@ -10,7 +11,7 @@ import com.itoys.views.toast.ToastyStatus
  */
 
 /**
- * view 状态
+ * view UI 状态
  */
 interface IUIState
 
@@ -20,7 +21,7 @@ interface IUIState
 interface IUIIntent
 
 /**
- * loading 状态
+ * loading UI 状态
  */
 sealed class LoadingUIState {
 
@@ -30,7 +31,12 @@ sealed class LoadingUIState {
 }
 
 /**
- * toast 状态
+ * 状态 layout UI 状态
+ */
+class StateLayoutUIState(val status: PageStatus)
+
+/**
+ * toast UI 状态
  */
 sealed class ToastUIState {
     data class Toast(
@@ -48,7 +54,7 @@ sealed class ToastUIState {
 }
 
 /**
- * list 状态
+ * list UI 状态
  */
 data class IListUIState<out T>(
     val listUiState: ListUIState<T>

@@ -1,9 +1,16 @@
 package com.itoys.base.activity
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import com.gyf.immersionbar.ImmersionBar
+import com.hjq.bar.OnTitleBarListener
+import com.hjq.bar.TitleBar
+import com.itoys.base.R
+import com.itoys.expansion.then
+import com.itoys.views.statelayout.StateLayout
+import com.itoys.views.statelayout.addStateLayout
 
 /**
  * @author Fanfan.gu <a href="mailto:fanfan.work@outlook.com">Contact me.</a>
@@ -13,9 +20,24 @@ import com.gyf.immersionbar.ImmersionBar
 abstract class AbsActivity<VB : ViewBinding> : AppCompatActivity() {
 
     /** activity 本身. */
-    open var self: AppCompatActivity? = null
+    protected open var self: AppCompatActivity? = null
 
     protected open var mBinding: VB? = null
+
+    protected open var stateLayout: StateLayout? = null
+
+    protected open val titleBarListener = object : OnTitleBarListener {
+        override fun onLeftClick(titleBar: TitleBar?) {
+            finish()
+        }
+    }
+
+    /**
+     * 状态栏重试
+     */
+    protected open val stateLayoutRetry: () -> Unit = {
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +46,10 @@ abstract class AbsActivity<VB : ViewBinding> : AppCompatActivity() {
         setContentView(mBinding?.root)
 
         supportActionBar?.hide()
+        loadStateLayout()
         initView(savedInstanceState)
+        // 设置 activity title
+        findViewById<TitleBar>(R.id.title_bar)?.title = activityTitle()
         addClickListen()
     }
 
@@ -63,6 +88,7 @@ abstract class AbsActivity<VB : ViewBinding> : AppCompatActivity() {
      */
     protected open fun addClickListen() {
         // 空实现, 为 activity 点击事件
+        findViewById<TitleBar>(R.id.title_bar)?.setOnTitleBarListener(titleBarListener)
     }
 
     override fun onContentChanged() {
@@ -147,6 +173,26 @@ abstract class AbsActivity<VB : ViewBinding> : AppCompatActivity() {
      * 侧滑finish activity
      */
     protected open fun useSwipeFinish(): Boolean {
+        return true
+    }
+
+    /**
+     * 加载 state layout.
+     */
+    protected open fun loadStateLayout(view: View? = null) {
+        if (useStateLayout()) {
+            stateLayout = (view == null).then({
+                addStateLayout(retry = stateLayoutRetry)
+            }, {
+                view?.addStateLayout(retry = stateLayoutRetry)
+            })
+        }
+    }
+
+    /**
+     * 使用 state layout
+     */
+    protected open fun useStateLayout(): Boolean {
         return true
     }
 }

@@ -1,1 +1,6 @@
-<manifest package="com.itoys.views" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.itoys.views">
+
+    <application android:theme="@style/IToysApp" />
+
+</manifest>

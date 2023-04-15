@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <com.hjq.bar.TitleBar
-        android:id="@+id/simple_title_bar"
+        android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,14 +19,14 @@
         android:layout_marginTop="10dp"
         android:text="@string/simple_str_main_basics"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/simple_title_bar" />
+        app:layout_constraintTop_toBottomOf="@+id/title_bar" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="42dp"
         android:paddingHorizontal="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/simple_title_bar">
+        app:layout_constraintTop_toBottomOf="@+id/title_bar">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/simple_btn_toasty_normal"
@@ -116,5 +116,15 @@
             android:text="@string/simple_str_show_mack_snack"
             app:layout_constraintStart_toStartOf="@+id/simple_btn_toasty_error"
             app:layout_constraintTop_toBottomOf="@id/simple_btn_toasty_error" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/simple_btn_state_layout"
+            style="@style/IToysView.MediumButton"
+            android:layout_width="84dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/simple_str_main_state_layout"
+            app:layout_constraintStart_toEndOf="@+id/simple_btn_snack"
+            app:layout_constraintTop_toTopOf="@id/simple_btn_snack" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

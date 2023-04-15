@@ -52,6 +52,10 @@ abstract class AbsViewModel<U : IUIState, I : IUIIntent> : ViewModel(),
     private val _toastUiStateFlow: Channel<ToastUIState> = Channel()
     val toastUiStateFlow: Flow<ToastUIState?> = _toastUiStateFlow.receiveAsFlow()
 
+    /** state layout 状态 flow */
+    private val _stateLayoutUiStateFlow: Channel<StateLayoutUIState> = Channel()
+    val stateLayoutUiStateFlow: Flow<StateLayoutUIState?> = _stateLayoutUiStateFlow.receiveAsFlow()
+
     init {
         launchOnUI {
             _uiIntentFlow.receiveAsFlow().collect { handlerIntent(it) }
@@ -87,6 +91,13 @@ abstract class AbsViewModel<U : IUIState, I : IUIIntent> : ViewModel(),
      */
     fun sendToastUIState(block: ToastUIState) {
         launchOnUI { _toastUiStateFlow.send(block) }
+    }
+
+    /**
+     * 发送 state layout 状态
+     */
+    fun sendStateLayoutUIState(block: StateLayoutUIState) {
+        launchOnUI { _stateLayoutUiStateFlow.send(block) }
     }
 
     /**

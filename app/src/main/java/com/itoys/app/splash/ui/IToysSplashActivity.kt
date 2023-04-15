@@ -25,7 +25,7 @@ class IToysSplashActivity : AbsMviActivity<AppActivitySplashBinding, IToysSplash
     override fun initView(savedInstanceState: Bundle?) {
         super.initView(savedInstanceState)
         self?.apply {
-            MainActivity::class.actOpen(this)
+            actOpen(MainActivity::class)
             finish()
         }
     }
