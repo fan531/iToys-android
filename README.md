@@ -35,6 +35,11 @@
 * [Android-SpinKit](https://github.com/ybq/Android-SpinKit): Android loading animations.
 * [cryptography](https://github.com/whyoleg/cryptography-kotlin): Type-safe Multiplatform cryptography library for Kotlin.
 
+
+### Lottie 动画资源
+* [情感化设计-缺省页](https://www.iconfont.cn/lotties/detail?spm=a313x.7781069.1998910419.d9df05512&cid=42184): 个人免费使用！（不可商用）
+
+
 ### 参考
 
 * [Toasty](https://github.com/GrenderG/Toasty): The usual Toast, but with steroids 💪
