@@ -4,6 +4,7 @@ import android.app.Application
 import com.itoys.base.app.IToysAppInit
 import com.itoys.base.app.AbsIToysApplication
 import com.itoys.kit.IToysKit
+import com.itoys.network.NetworkInitialization
 import com.itoys.views.statelayout.StateConfig
 import com.itoys.views.statelayout.handler.FadeStateChangedHandler
 
@@ -17,6 +18,8 @@ class IToysApp : AbsIToysApplication() {
     override val appInit: IToysAppInit
         get() = object : IToysAppInit {
             override fun syncInit(application: Application) {
+                // 初始化网络服务
+                NetworkInitialization.initialization()
                 // 集成 itoys-kit, 已区分开发模式和发布模式, 开发模式可定义些功能
                 IToysKit.Builder(application = iToysApp).build()
             }

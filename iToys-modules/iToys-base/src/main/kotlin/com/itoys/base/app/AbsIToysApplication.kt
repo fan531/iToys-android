@@ -4,10 +4,7 @@ import android.app.Application
 import android.content.Context
 import androidx.multidex.MultiDex
 import com.itoys.expansion.launchOnIO
-import com.itoys.network.NetworkInitialization
 import com.itoys.utils.SysUtils
-import com.itoys.views.statelayout.StateConfig
-import com.itoys.views.statelayout.StateLayout
 
 /**
  * @author Fanfan.gu <a href="mailto:fanfan.work@outlook.com">Contact me.</a>
@@ -31,8 +28,6 @@ abstract class AbsIToysApplication : Application() {
         iToysApp = this
 
         if (SysUtils.isMainProcess(iToysApp)) {
-            // 初始化网络服务
-            NetworkInitialization.initialization()
             // 同步初始化, 继承AbsIToysApplication后可做自定义初始化
             appInit.syncInit(application = iToysApp)
         }

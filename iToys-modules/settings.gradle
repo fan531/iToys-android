@@ -1,9 +1,11 @@
 include ':iToys-base',
         ':iToys-env',
         ':iToys-expansion',
+        ':iToys-image',
         ':iToys-kit',
         ':iToys-logcat',
         ':iToys-network',
         ':iToys-theme',
         ':iToys-utils',
+        ':iToys-video',
         ':iToys-views'

@@ -128,10 +128,11 @@ abstract class AbsViewModel<U : IUIState, I : IUIIntent> : ViewModel(),
      *
      * [showLoading] 是否显示 loading, 默认显示
      * [showToast] 是否显示 toast, 默认显示
-     * [showSnack] 是否显示 snack, 默认不显示
+     * [showTopSnack] 是否显示 snack, 默认不显示
+     * [showBottomSnack] 是否显示 snack, 默认不显示
      * [requestTag] 请求tag
      * [success] 请求tag
-     * [handleEx] 默认实现, 提示信息由[showToast], [showSnack] 来控制, 如果都不显示, 默认框架提示
+     * [handleEx] 默认实现, 提示信息由[showToast], [showTopSnack], [showBottomSnack] 来控制, 如果都不显示, 默认框架提示
      * [request] 请求
      */
     fun <T : Any> launchRequestWithFlow(
