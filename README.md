@@ -37,7 +37,7 @@
 
 
 ### Lottie 动画资源
-* [情感化设计-缺省页](https://www.iconfont.cn/lotties/detail?spm=a313x.7781069.1998910419.d9df05512&cid=42184): 个人免费使用！（不可商用）如需商用请去作者主页打赏评论
+* [缺省页](https://www.iconfont.cn/lotties/detail?spm=a313x.7781069.1998910419.d9df05512&cid=44392): 个人免费使用！（不可商用）如需商用请去作者主页打赏评论
 
 
 ### 图片资源
