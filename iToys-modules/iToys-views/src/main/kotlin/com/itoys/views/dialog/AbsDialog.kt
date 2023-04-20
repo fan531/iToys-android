@@ -93,7 +93,7 @@ abstract class AbsDialog<VB : ViewBinding> : DialogFragment() {
      * 对话框样式
      */
     protected open fun dialogStyle(): Int {
-        return com.itoys.theme.R.style.IToysApp_Dialog
+        return R.style.IToysApp_Dialog
     }
 
     /**

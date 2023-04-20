@@ -127,7 +127,7 @@ abstract class AbsActivity<VB : ViewBinding> : AppCompatActivity() {
      * 浸式状态栏颜色
      */
     protected open fun immersionBarColor(): Int {
-        return com.itoys.theme.R.color.theme_colorful_white
+        return R.color.theme_colorful_white
     }
 
     /**
@@ -148,7 +148,7 @@ abstract class AbsActivity<VB : ViewBinding> : AppCompatActivity() {
      * 导航栏颜色
      */
     protected open fun navigationBarColor(): Int {
-        return com.itoys.theme.R.color.theme_colorful_black_percent15
+        return R.color.theme_colorful_black_percent15
     }
 
     protected open fun navigationAlpha(): Float {

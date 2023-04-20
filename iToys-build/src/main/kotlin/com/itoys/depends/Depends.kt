@@ -23,6 +23,10 @@ object Depends {
     /** Type-safe Multiplatform cryptography library for Kotlin */
     const val cryptography = "dev.whyoleg.cryptography:cryptography-core:0.1.0"
 
+    /** Glide: 图片加载 */
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+    const val glide_compiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
+
     /** json 解析 */
     const val gson = "com.google.code.gson:gson:2.10.1"
     const val jackson = "com.fasterxml.jackson.module:jackson-module-kotlin:2.14.+"
@@ -74,6 +78,9 @@ object Depends {
 
         /** Kotlin */
         const val kotlin = "1.6.21"
+
+        /** Glide: 图片加载 */
+        const val glide = "4.14.2"
 
         /** 沉浸式状态栏 */
         const val immersionbar = "3.2.2"

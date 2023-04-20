@@ -274,7 +274,7 @@ class TopSnackBar {
         left: Boolean = true, right: Boolean = false
     ): TopSnackBar {
         return addLoadingIcon(
-            mContent.drawable(com.itoys.theme.R.drawable.theme_icon_loading_24), left, right
+            mContent.drawable(R.drawable.theme_icon_loading_24), left, right
         )
     }
 

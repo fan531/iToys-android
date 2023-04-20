@@ -18,4 +18,9 @@ dependencies {
     implementation(Jetpacks.appcompat)
 
     implementation(Depends.kotlin_stdlib)
+    implementation(Depends.glide)
+    implementation(Depends.okhttp)
+    implementation(Depends.okio)
+
+    kapt(Depends.glide_compiler)
 }

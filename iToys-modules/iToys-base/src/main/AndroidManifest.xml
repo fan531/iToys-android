@@ -1,6 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.itoys.base">
 
+    <!-- 允许应用程序打开网络 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application android:maxAspectRatio="2.4">
 
         <!-- 全面屏 -->

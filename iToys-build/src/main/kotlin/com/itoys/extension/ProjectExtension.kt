@@ -107,7 +107,6 @@ fun BaseAppModuleExtension.appConfig(
             proguardFiles(getDefaultProguardFile(AppConfig.defaultProguardFile), AppConfig.proguardRulesFile)
             matchingFallbacks.apply {
                 add("debug")
-                add("release")
             }
 
             applicationIdSuffix = ".preview"
@@ -124,7 +123,6 @@ fun BaseAppModuleExtension.appConfig(
             isDebuggable = false
             proguardFiles(getDefaultProguardFile(AppConfig.defaultProguardFile), AppConfig.proguardRulesFile)
             matchingFallbacks.apply {
-                add("debug")
                 add("release")
             }
 

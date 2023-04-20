@@ -33,23 +33,19 @@ object AnimationUtils {
     }
 
     fun getAnimationInFromTopToDown(context: Context): Animation {
-        return AnimationUtils.loadAnimation(context, com.itoys.theme.R.anim.anim_from_top_in)
+        return AnimationUtils.loadAnimation(context, R.anim.anim_from_top_in)
     }
 
     fun getAnimationOutFromTopToDown(context: Context): Animation {
-        return AnimationUtils.loadAnimation(context, com.itoys.theme.R.anim.anim_from_top_out)
+        return AnimationUtils.loadAnimation(context, R.anim.anim_from_top_out)
     }
 
     fun getAnimationInFromBottomToTop(context: Context): Animation {
-        return AnimationUtils.loadAnimation(
-            context, com.google.android.material.R.anim.design_snackbar_in
-        )
+        return AnimationUtils.loadAnimation(context, R.anim.design_snackbar_in)
     }
 
     fun getAnimationOutFromBottomToTop(context: Context): Animation {
-        return AnimationUtils.loadAnimation(
-            context, com.google.android.material.R.anim.design_snackbar_out
-        )
+        return AnimationUtils.loadAnimation(context, R.anim.design_snackbar_out)
     }
 
     /**

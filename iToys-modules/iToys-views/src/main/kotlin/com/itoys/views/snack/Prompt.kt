@@ -16,14 +16,14 @@ enum class Prompt(
 
     SUCCESS(
         R.drawable.itoys_views_ic_check_white_24dp,
-        com.itoys.theme.R.color.theme_colorful_388E3C
+        R.color.theme_colorful_388E3C
     ),
     ERROR(
         R.drawable.itoys_views_ic_error_white_24dp,
-        com.itoys.theme.R.color.theme_colorful_D50000
+        R.color.theme_colorful_D50000
     ),
     WARNING(
         R.drawable.itoys_views_ic_warning_outline_white_24dp,
-        com.itoys.theme.R.color.theme_colorful_FFA900
+        R.color.theme_colorful_FFA900
     );
 }

@@ -16,25 +16,25 @@ enum class ToastyStatus(
 ) {
     INFO(
         icon = R.drawable.itoys_views_ic_info_outline_white_24dp,
-        tintColor = com.itoys.theme.R.color.theme_colorful_3F51B5,
-        textColor = com.itoys.theme.R.color.theme_colorful_white,
+        tintColor = R.color.theme_colorful_3F51B5,
+        textColor = R.color.theme_colorful_white,
     ),
 
     WARING(
         icon = R.drawable.itoys_views_ic_warning_outline_white_24dp,
-        tintColor = com.itoys.theme.R.color.theme_colorful_FFA900,
-        textColor = com.itoys.theme.R.color.theme_colorful_white,
+        tintColor = R.color.theme_colorful_FFA900,
+        textColor = R.color.theme_colorful_white,
     ),
 
     SUCCESS(
         icon = R.drawable.itoys_views_ic_check_white_24dp,
-        tintColor = com.itoys.theme.R.color.theme_colorful_388E3C,
-        textColor = com.itoys.theme.R.color.theme_colorful_white,
+        tintColor = R.color.theme_colorful_388E3C,
+        textColor = R.color.theme_colorful_white,
     ),
 
     ERROR(
         icon = R.drawable.itoys_views_ic_error_white_24dp,
-        tintColor = com.itoys.theme.R.color.theme_colorful_D50000,
-        textColor = com.itoys.theme.R.color.theme_colorful_white,
+        tintColor = R.color.theme_colorful_D50000,
+        textColor = R.color.theme_colorful_white,
     );
 }
