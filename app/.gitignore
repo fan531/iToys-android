@@ -1,5 +1,5 @@
 /build
-/debug
-/preview
-/preRelease
-/release
+/Ver-Dev
+/Ver-Test
+/Ver-Uat
+/Ver-Prod

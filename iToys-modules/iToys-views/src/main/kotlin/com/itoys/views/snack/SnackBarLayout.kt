@@ -22,7 +22,7 @@ class SnackBarLayout : LinearLayout {
 
     private var mMaxWidth = 0
     private var mMaxInlineActionWidth = 0
-    private lateinit var mSnackBarBinding: ItoysViewLayoutSnackBarBinding
+    private var mSnackBarBinding: ItoysViewLayoutSnackBarBinding
 
     private var mOnLayoutChangeListener: OnLayoutChangeListener? = null
     private var mOnAttachStateChangeListener: OnAttachStateChangeListener? = null

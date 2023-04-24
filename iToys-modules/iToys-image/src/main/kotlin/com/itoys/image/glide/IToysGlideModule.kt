@@ -82,7 +82,7 @@ interface IToysGlideOptions {
 
     fun isManifestParsingEnabled() = false
 
-    fun applyOptions(context: Context, builder: GlideBuilder) {}
+    fun applyOptions(context: Context, builder: GlideBuilder) { /** 空实现 */ }
 
-    fun registerComponents(context: Context, glide: Glide, registry: Registry) {}
+    fun registerComponents(context: Context, glide: Glide, registry: Registry) { /** 空实现 */ }
 }

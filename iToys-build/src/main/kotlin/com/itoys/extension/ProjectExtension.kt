@@ -1,11 +1,9 @@
 package com.itoys.extension
 
-import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import com.itoys.AppConfig
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
-import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 import java.io.File
 
 /**
@@ -50,11 +48,8 @@ private val uatAppManifestPlaceholders: HashMap<String, Any> by lazy {
  */
 fun BaseAppModuleExtension.appConfig(
     project: Project,
-    useAliRouter: Boolean = false,
     useViewBiding: Boolean = true,
 ) {
-    project.router(useAliRouter = useAliRouter)
-
     namespace = AppConfig.appId
     compileSdk = AppConfig.compileSdkVersion
 
@@ -85,13 +80,28 @@ fun BaseAppModuleExtension.appConfig(
     }
 
     buildTypes {
-        // dev
         getByName("debug") {
             isMinifyEnabled = false
             isDebuggable = true
             proguardFiles(getDefaultProguardFile(AppConfig.defaultProguardFile), AppConfig.proguardRulesFile)
-            matchingFallbacks.apply { add("debug") }
 
+            signingConfig = signingConfigs.getByName("debug")
+        }
+
+        getByName("release") {
+            isMinifyEnabled = true
+            isDebuggable = false
+            proguardFiles(getDefaultProguardFile(AppConfig.defaultProguardFile), AppConfig.proguardRulesFile)
+
+            signingConfig = signingConfigs.getByName("release")
+        }
+    }
+
+    flavorDimensions += AppConfig.flavorDimensions
+
+    productFlavors {
+        // 开发
+        create("Ver-Dev") {
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-debug"
             testNamespace = "${AppConfig.appId}$applicationIdSuffix"
@@ -100,48 +110,25 @@ fun BaseAppModuleExtension.appConfig(
             manifestPlaceholders.putAll(debugAppManifestPlaceholders)
         }
 
-        // test
-        create("preview") {
-            isMinifyEnabled = false
-            isDebuggable = true
-            proguardFiles(getDefaultProguardFile(AppConfig.defaultProguardFile), AppConfig.proguardRulesFile)
-            matchingFallbacks.apply {
-                add("debug")
-            }
-
-            applicationIdSuffix = ".preview"
-            versionNameSuffix = "-preview"
+        // 测试
+        create("Ver-Test") {
+            applicationIdSuffix = ".test"
+            versionNameSuffix = "-test"
             testNamespace = "${AppConfig.appId}$applicationIdSuffix"
 
-            signingConfig = signingConfigs.getByName("debug")
             manifestPlaceholders.putAll(previewAppManifestPlaceholders)
         }
 
-        // pre-release
-        create("preRelease") {
-            isMinifyEnabled = true
-            isDebuggable = false
-            proguardFiles(getDefaultProguardFile(AppConfig.defaultProguardFile), AppConfig.proguardRulesFile)
-            matchingFallbacks.apply {
-                add("release")
-            }
-
+        // 预发布
+        create("Ver-Uat") {
             applicationIdSuffix = ".uat"
             versionNameSuffix = "-uat"
             testNamespace = "${AppConfig.appId}$applicationIdSuffix"
-
-            signingConfig = signingConfigs.getByName("release")
             manifestPlaceholders.putAll(uatAppManifestPlaceholders)
         }
 
-        // release
-        getByName("release") {
-            isMinifyEnabled = true
-            isDebuggable = false
-            proguardFiles(getDefaultProguardFile(AppConfig.defaultProguardFile), AppConfig.proguardRulesFile)
-            matchingFallbacks.apply { add("release") }
-
-            signingConfig = signingConfigs.getByName("release")
+        // 线上生产
+        create("Ver-Prod") {
             manifestPlaceholders.putAll(appManifestPlaceholders)
         }
     }
@@ -173,48 +160,5 @@ fun BaseAppModuleExtension.appConfig(
         warningsAsErrors = true
         // turn off checking the given issue id's
         disable.plus("RemoveWorkManagerInitializer")
-    }
-}
-
-/**
- * library 模块配置.
- */
-fun LibraryExtension.libraryConfig(
-    project: Project,
-    useAliRouter: Boolean = false,
-    useViewBiding: Boolean = true,
-) {
-    project.router(useAliRouter = useAliRouter)
-
-    compileSdk = AppConfig.compileSdkVersion
-
-    defaultConfig {
-        minSdk = AppConfig.minSdkVersion.apiLevel
-        targetSdk = AppConfig.targetSdkVersion.apiLevel
-    }
-
-    buildFeatures {
-        viewBinding = useViewBiding
-    }
-
-    compileOptions {
-        targetCompatibility = JavaVersion.VERSION_1_8
-        sourceCompatibility = JavaVersion.VERSION_1_8
-    }
-}
-
-/**
- * 路由配置.
- */
-fun Project.router(
-    useAliRouter: Boolean = false,
-    useTheRouter: Boolean = false,
-) {
-    if (useAliRouter) {
-        (extensions.getByName("kapt") as KaptExtension).apply {
-            arguments {
-                arg("AROUTER_MODULE_NAME", project.name)
-            }
-        }
     }
 }

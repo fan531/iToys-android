@@ -10,7 +10,12 @@ plugins {
     kotlin("kapt")
 }
 
-android { libraryConfig(project = project) }
+android {
+    libraryConfig(
+        project = project,
+        namespaceId = "com.itoys.base",
+    )
+}
 
 dependencies {
     implementation(Jetpacks.appcompat)
@@ -37,8 +42,6 @@ dependencies {
     kapt(Jetpacks.lifecycle_compiler)
     implementation(Jetpacks.lifecycle_java8)
 
-    implementation(Modules.iToysExpansion(project))
-    implementation(Modules.iToysLogcat(project))
     implementation(Modules.iToysNetwork(project))
     implementation(Modules.iToysTheme(project))
     implementation(Modules.iToysUtils(project))

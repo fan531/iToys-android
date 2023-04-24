@@ -51,5 +51,6 @@ object AppConfig {
     const val defaultProguardFile: String = "proguard-android-optimize.txt"
     const val proguardRulesFile: String = "proguard-rules.pro"
 
-
+    // build 变体
+    const val flavorDimensions: String = "iToys"
 }

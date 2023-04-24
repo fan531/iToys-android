@@ -11,7 +11,10 @@ plugins {
 }
 
 android {
-    libraryConfig(project = project)
+    libraryConfig(
+        project = project,
+        namespaceId = "com.itoys.utils",
+    )
 }
 
 dependencies {
@@ -20,6 +23,4 @@ dependencies {
     implementation(Jetpacks.material)
     implementation(Depends.mmkv)
     implementation(Depends.kotlin_stdlib)
-    implementation(Modules.iToysExpansion(project))
-    implementation(Modules.iToysLogcat(project))
 }

@@ -11,7 +11,10 @@ plugins {
 }
 
 android {
-    libraryConfig(project = project)
+    libraryConfig(
+        project = project,
+        namespaceId = "com.itoys.views",
+    )
 }
 
 dependencies {
@@ -24,8 +27,6 @@ dependencies {
     implementation(Depends.lottie)
     implementation(Depends.spin)
 
-    implementation(Modules.iToysExpansion(project))
-    implementation(Modules.iToysLogcat(project))
     implementation(Modules.iToysTheme(project))
     implementation(Modules.iToysUtils(project))
 }

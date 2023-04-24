@@ -12,7 +12,10 @@ plugins {
 }
 
 android {
-    libraryConfig(project = project)
+    libraryConfig(
+        project = project,
+        namespaceId = "com.itoys.env.iml",
+    )
 }
 
 dependencies {
@@ -24,7 +27,6 @@ dependencies {
     implementation(Depends.brv)
     implementation(Depends.kotlin_stdlib)
 
-    implementation(Modules.iToysExpansion(project))
     implementation(Modules.iToysEnvAnnotation(project))
     implementation(Modules.iToysUtils(project))
     ksp(Modules.iToysEnvAnnotation(project))

@@ -10,7 +10,10 @@ plugins {
 }
 
 android {
-    libraryConfig(project = project)
+    libraryConfig(
+        project = project,
+        namespaceId = "com.itoys.video",
+    )
 }
 
 dependencies {

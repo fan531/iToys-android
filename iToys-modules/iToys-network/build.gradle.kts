@@ -10,7 +10,10 @@ plugins {
 }
 
 android {
-    libraryConfig(project = project)
+    libraryConfig(
+        project = project,
+        namespaceId = "com.itoys.network",
+    )
 }
 
 dependencies {
@@ -19,5 +22,5 @@ dependencies {
     implementation(Depends.okhttp)
     implementation(Depends.gson)
     implementation(Depends.jackson)
-    implementation(Modules.iToysLogcat(project))
+    implementation(Modules.iToysUtils(project))
 }

@@ -11,7 +11,10 @@ plugins {
 }
 
 android {
-    libraryConfig(project = project)
+    libraryConfig(
+        project = project,
+        namespaceId = "com.itoys.kit",
+    )
 }
 
 dependencies {
@@ -36,9 +39,7 @@ dependencies {
     kapt(Jetpacks.lifecycle_compiler)
     implementation(Jetpacks.lifecycle_java8)
 
-    implementation(Modules.iToysExpansion(project))
     implementation(Modules.iToysEnvIml(project))
     implementation(Modules.iToysNetwork(project))
     implementation(Modules.iToysUtils(project))
-    implementation(Modules.iToysLogcat(project))
 }
