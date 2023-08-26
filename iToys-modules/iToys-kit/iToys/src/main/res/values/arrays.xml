@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <array name="kit_icons">
-        <item>@drawable/itoys_icon_kit_http</item>
-        <item>@drawable/itoys_icon_kit_devlop</item>
-        <item>@drawable/itoys_icon_kit_settings</item>
-    </array>
-</resources>

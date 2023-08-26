@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="env_str_choice_network">请选择Api环境</string>
-    <string name="env_str_current_selection">当前选择:</string>
-    <string name="env_str_hint_custom_api">请输入自定义Api地址</string>
-    <string name="env_str_ok">确定选择</string>
-</resources>

@@ -3,6 +3,8 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.8">
       <module name="iToys-android.iToys-modules.iToys-env.env-impl" target="17" />
+      <module name="iToys-android.iToys-modules.iToys-expansion" target="17" />
+      <module name="iToys-android.iToys-modules.iToys-logcat" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

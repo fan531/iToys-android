@@ -1,9 +1,0 @@
-include ':iToys-base',
-        ':iToys-env',
-        ':iToys-image',
-        ':iToys-kit',
-        ':iToys-network',
-        ':iToys-theme',
-        ':iToys-utils',
-        ':iToys-video',
-        ':iToys-views'

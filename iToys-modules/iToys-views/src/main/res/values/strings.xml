@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="views_str_loading">正在加载中&#8230;</string>
-    <string name="views_str_state_empty">这里啥也没有</string>
-    <string name="views_str_state_error">出现异常</string>
-    <string name="views_str_state_net_error">网络错误</string>
-</resources>
